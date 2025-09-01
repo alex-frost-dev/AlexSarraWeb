@@ -1,15 +1,15 @@
 {
-  "HOME": {
-    "WELCOME": "Bienvenido",
-    "DESCRIPTION": "Esta es la página principal"
-  },
-  "LOGIN": {
-    "USERNAME": "Usuario",
-    "PASSWORD": "Contraseña",
-    "BUTTON": "Iniciar sesión"
-  },
-  "ERRORS": {
-    "REQUIRED": "Este campo es obligatorio",
-    "INVALID": "Valor inválido"
+  "projects": {
+    "project_1": {
+      "name" : "Gestión de facturas de traducción",
+      "description": "Programa con GUI que genera facturas enfocadas al sector de la traducción. Conectado a una BBDD PostgreSQL local y mediante la biblioteca Java Swing, recibe la información fiscal de los clientes guardados y la combina con los datos introducidos del servicio facturado. Sigo recibiendo feedback del usuario y actualizando según sus necesidades.",
+      "frameworks": "Java Swing, Hibernate",
+      "year": "2024",
+      "year_label": "Año",
+      "duration": "1 mes",
+      "duration_label": "Duración",
+      "tools": "NetBeans, PostgreSQL",
+      "tools_label": "Herramientas"
+    }
   }
 }

@@ -14,4 +14,3 @@ import { TranslatePipe, TranslateDirective } from '@ngx-translate/core';
   ]
 })
 export class ProjectsModule { }
-
