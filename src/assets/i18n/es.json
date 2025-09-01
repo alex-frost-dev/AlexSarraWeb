@@ -1,0 +1,15 @@
+{
+  "HOME": {
+    "WELCOME": "Bienvenido",
+    "DESCRIPTION": "Esta es la página principal"
+  },
+  "LOGIN": {
+    "USERNAME": "Usuario",
+    "PASSWORD": "Contraseña",
+    "BUTTON": "Iniciar sesión"
+  },
+  "ERRORS": {
+    "REQUIRED": "Este campo es obligatorio",
+    "INVALID": "Valor inválido"
+  }
+}
