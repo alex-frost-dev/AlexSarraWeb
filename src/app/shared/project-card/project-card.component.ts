@@ -4,6 +4,8 @@ import { LanguageService } from '../language/language.service';
 import { GalleryComponent } from '../gallery/image-gallery/image-gallery.component';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { ImageGalleryWindowComponent } from '../gallery/image-gallery-window/image-gallery-window.component';
 
 @Component({
   selector: 'project-card',
@@ -26,7 +28,10 @@ export class ProjectCardComponent {
   projectPrefix: string = 'projects';
   defaultsPrefix: string = this.projectPrefix + '.defaults';
 
-  constructor(@Inject(LanguageService) private lang: any, private languageService: LanguageService, private translateService: TranslateService, private http: HttpClient) { }
+  images!: string[];
+  previewImage!: string;
+
+  constructor(@Inject(LanguageService) private lang: any, private languageService: LanguageService, private translateService: TranslateService, private http: HttpClient, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.projectPrefix += "." + this.projectName;
@@ -34,10 +39,27 @@ export class ProjectCardComponent {
     this.http.get<any>('../../../assets/i18n/' + this.language + '.json').subscribe(json => {
       this.jsonProject = json["projects"][this.projectName];
       this.labels = json["projects"]["defaults"];
+      this.images = this.jsonProject["images"];
+      this.previewImage = this.images[0];
     });
+    
   }
 
   doJsonKeyExists(key: string) {
     return this.jsonProject[key] != undefined;
+  }
+
+  openPreviewedImage() {
+    this.dialog.open(ImageGalleryWindowComponent, {
+          data: {
+            src: this.previewImage,
+            images: this.images
+          },
+        });
+  }
+
+  handleClickedImage(newImage: any) {
+    console.log('Received from component2:', newImage);
+    this.previewImage = newImage;
   }
 }

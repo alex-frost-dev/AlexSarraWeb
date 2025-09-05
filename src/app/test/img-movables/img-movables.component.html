@@ -1,0 +1,11 @@
+<div class="gallery">
+  <div *ngFor="let img of images; let i = index" class="gallery-image-container">
+    <img
+      class="gallery-image"
+      [src]="img.src"
+      [style.transform]="'translate(' + img.x + 'px, ' + img.y + 'px)'"
+      (click)="moveImage(i, 100, 0)"
+      alt="Gallery image"
+    />
+  </div>
+</div>

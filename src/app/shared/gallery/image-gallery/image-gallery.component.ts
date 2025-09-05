@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ImageGalleryWindowComponent } from '../image-gallery-window/image-gallery-window.component';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -17,6 +17,8 @@ export class GalleryComponent {
   @Input() images!: string[];
   @Input() maxNumItems!: number;
   arrowsNeeded: boolean = false;
+
+  @Output() imageClicked = new EventEmitter<string>();
 
   constructor(private dialog: MatDialog) { }
 
@@ -45,12 +47,11 @@ export class GalleryComponent {
     }
   }
 
-  openImage(imgSrc: string) {
-    this.dialog.open(ImageGalleryWindowComponent, {
-      data: {
-        src: imgSrc,
-        images: this.images
-      },
-    });
+  sendImage(val: string) {
+    this.imageClicked.emit(val);
+  }
+
+  getImageName(path: string) {
+    return path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
   }
 }

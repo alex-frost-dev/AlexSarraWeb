@@ -12,7 +12,6 @@ export class ImageGalleryWindowComponent {
 
   @HostListener('window:keydown', ['$event'])
   handleGlobalKeyDown(event: KeyboardEvent) {
-    console.log('Keyboard pressed: ', event.key);
     if (event.key == "ArrowLeft") {
       this.prev();
     } else if (event.key == "ArrowRight") {
@@ -41,22 +40,22 @@ export class ImageGalleryWindowComponent {
   }
 
   prev() {
+    console.log("previous");
     if (this.startIndex < this.currentSrcIndex) {
       this.currentSrcIndex--;
-      console.log(this.currentSrcIndex);
     }
   }
 
   next() {
     if (this.currentSrcIndex < this.endIndex) {
       this.currentSrcIndex++;
-      console.log(this.currentSrcIndex);
     }
   }
 
   close() {
     if (this.canClose) {
       this.dialogRef.close();
+      console.log("closing...");
     }
   }
 }

@@ -21,7 +21,7 @@
         "../../../assets/images/projects/gestor_facturas/importar.png",
         "../../../assets/images/projects/gestor_facturas/configuracion.png"
       ],
-      "imagesPerRow": "6"
+      "imagesPerRow": "4"
     },
     "test_capitales": {
       "name": "Test de las capitales",

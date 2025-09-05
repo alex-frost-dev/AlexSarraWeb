@@ -1,18 +1,16 @@
 <div class="modal-backdrop" (click)="close()">
   <div class="modal-window">
-    <button class="previous-button" (click)="$event.stopPropagation()" (click)="prev()" [disabled]="startIndex == currentSrcIndex">
-      <img class="button-arrow-image" src="assets/shared/big_left_arrow.png">
-    </button>
-    <div class="modal-content">
+    <div class="close-button">
+      <span class="close" (click)="close()">&times;</span>
+    </div>
+    <div class="content-window">
+        <img class="previous-button" *ngIf="startIndex != currentSrcIndex" src="assets/images/icons/big_left_arrow_white.png" (click)="$event.stopPropagation(); prev()">
+        <img class="previous-button" *ngIf="startIndex == currentSrcIndex" src="assets/images/icons/big_left_arrow_grey.png" (click)="$event.stopPropagation(); prev()">
       <div class="image-frame">
-        <div class="close-button">
-          <span class="close" (click)="close()">&times;</span>
-        </div>
         <img [src]="images[currentSrcIndex]" (click)="$event.stopPropagation()" alt="Image">
       </div>
+        <img class="next-button" *ngIf="endIndex != currentSrcIndex" src="assets/images/icons/big_right_arrow_white.png" (click)="$event.stopPropagation(); next()">
+        <img class="next-button" *ngIf="endIndex == currentSrcIndex" src="assets/images/icons/big_right_arrow_grey.png" (click)="$event.stopPropagation(); next()">
     </div>
-    <button class="next-button" (click)="$event.stopPropagation()" (click)="next()" [disabled]="currentSrcIndex == endIndex">
-      <img class="button-arrow-image" src="assets/shared/big_right_arrow.png">
-    </button>
   </div>
 </div>

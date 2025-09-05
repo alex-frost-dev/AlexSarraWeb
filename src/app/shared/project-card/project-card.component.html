@@ -1,10 +1,10 @@
-<div class="project-container">
-    <!-- <div class="project-top"> -->
+<div class="card-container">
+    <div class="project-container">
         <div class="project-title-container">
             <p [innerHTML]="this.projectPrefix + '.name' | translate"></p>
             <div *ngIf="doJsonKeyExists('github')">
                 <a href="{{this.projectPrefix + '.github' | translate}}">
-                    <img class="github-icon" src="https://cdn-icons-png.flaticon.com/256/25/25231.png">
+                    <img class="github-icon" src="../../../assets/images/icons/github_white.png">
                 </a>
             </div>
         </div>
@@ -32,6 +32,10 @@
                 </div>
             </div>
         </div>
-    <!-- </div> -->
-    <app-image-gallery [maxNumItems]="this.jsonProject['imagesPerRow']" [images]="this.projectPrefix + '.images' | translate"></app-image-gallery>
+        <app-image-gallery [maxNumItems]="this.jsonProject['imagesPerRow']"
+            [images]="this.projectPrefix + '.images' | translate" (imageClicked)="handleClickedImage($event)"></app-image-gallery>
+    </div>
+    <div class="preview-image">
+        <img src="{{this.previewImage}}" (click)="openPreviewedImage()">
+    </div>
 </div>

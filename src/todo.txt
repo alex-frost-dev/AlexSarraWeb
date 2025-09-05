@@ -1,1 +1,4 @@
-Hay un padding inferior en el photo gallery que no sé de donde viene pero está en todas las imágenes
+Good info:
+ https://unsplash.com/ -> Buenas web para backround images
+
+- Animación de imágenes en el image-gallery. Ya hay pruebas en shared/test/img-movables

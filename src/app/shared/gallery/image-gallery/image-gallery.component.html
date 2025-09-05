@@ -1,17 +1,15 @@
 <!-- gallery.component.html -->
 <div class="gallery">
-  <button *ngIf="this.arrowsNeeded" (click)="prev()" [disabled]="startIndex === 0">
-    <img src="assets/shared/big_left_arrow.png">
+  <button class="arrow-button" *ngIf="this.arrowsNeeded" (click)="prev()" [disabled]="startIndex === 0">
+    <img src="assets/images/icons/big_left_arrow_white.png">
   </button>
   
   <div class="gallery-images">
-    <img *ngFor="let img of visibleImages" [src]="img" (click)="openImage(img)" class="gallery-img"/>
+    <div class="gallery-image-container" *ngFor="let img of visibleImages">
+      <img class="gallery-image movable" [src]="img" (click)="sendImage(img)"/>
+    </div>
   </div>
-  <button *ngIf="this.arrowsNeeded" (click)="next()" [disabled]="endIndex >= images.length">
-    <img src="assets/shared/big_right_arrow.png">
+  <button class="arrow-button" *ngIf="this.arrowsNeeded" (click)="next()" [disabled]="endIndex >= images.length">
+    <img src="assets/images/icons/big_right_arrow_white.png">
   </button>
 </div>
-
-<!-- <ng-template #noArrows>
-  <div class="arrowSubstituteDiv"></div>
-</ng-template> -->
