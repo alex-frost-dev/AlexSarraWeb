@@ -1,0 +1,1 @@
+Hay un padding inferior en el photo gallery que no sé de donde viene pero está en todas las imágenes

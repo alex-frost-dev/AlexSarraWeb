@@ -1,11 +1,31 @@
 .project-container {
+    /* TESTING */
+    /* border: 1px solid grey; */
+    /* TESTING */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 0.75vw;
     width: 60%;
 }
 
+/* .project-top {
+    padding-left: 2.55vw;
+} */
+
 .project-title-container {
     font-size: 1vw;
+    display: inline-flex;
+    gap: 1vw;
+    align-items: center;
+}
+
+.github-icon {
+    width: 1.5vw;
+}
+
+.project-description-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .project-body-container {
@@ -53,4 +73,18 @@
 .project-tools {
     grid-column: 3 / 4;
     padding-top: 0.5vh;
+}
+
+.project-images-container {
+    width: auto;
+    border: 1px solid black;
+}
+
+.images-gallery {
+    margin: 3%;
+}
+
+.images-gallery img {
+    height: 200px;
+    margin-left: 1%;
 }

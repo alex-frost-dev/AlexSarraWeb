@@ -1,0 +1,48 @@
+.gallery {
+  padding-top: 2%;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery button {
+  object-fit: cover;
+}
+
+.gallery button img {
+  width: 2vw;
+  height: 2vh;
+  object-fit: cover;
+}
+
+.gallery-images {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.gallery-img {
+  width: 80%;
+  height: 15vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* .arrowSubstituteDiv {
+  width: 2.3vw;
+} */
+
+.gallery button {
+  background: none;      /* No background */
+  border: none;          /* No border */
+  color: #333;           /* Arrow color */
+  font-size: 3vw;       /* Size of the arrow */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  cursor: pointer;       /* Pointer cursor on hover */
+  padding: 0.25vw; /* Optional: adjust clickable area */
+  outline: none;         /* Remove default outline (optional, for aesthetics) */
+}
+
+.gallery button:focus {
+  outline: none;         /* No focus outline, for a clean look */
+}
