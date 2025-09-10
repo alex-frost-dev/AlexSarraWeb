@@ -12,10 +12,10 @@
       "year": "2024",
       "duration": "1 mes",
       "tools": "NetBeans, PostgreSQL",
-      "github": "https://github.com/A50tt/Jud-InvoiceManager",
+      "github": "https://github.com/A50tt/GestorFacturasTraduccion",
       "images": [
-        "../../../assets/images/projects/gestor_facturas/crear_factura.png",
         "../../../assets/images/projects/gestor_facturas/factura.png",
+        "../../../assets/images/projects/gestor_facturas/crear_factura.png",
         "../../../assets/images/projects/gestor_facturas/buscar_factura.png",
         "../../../assets/images/projects/gestor_facturas/editar_cliente.png",
         "../../../assets/images/projects/gestor_facturas/importar.png",
@@ -37,6 +37,17 @@
         "../../../assets/images/projects/test_capitales/reglas.png"
       ],
       "imagesPerRow": "3"
+    },
+    "automatizacion_procesos_departamentales": {
+      "name": "Automaticación de procesos departamentales",
+      "description": "Mediante <b>VBA</b> en Excel, mientras trabajaba en Catalonia Hotels & Resorts, construí un programa para agilizar tareas en mi departamento. El código creaba informes ejecutando instrucciones de copia, comprobación y sincronización de archivos en <b>Sharepoint</b> y local. Pude vivir la experiencia de <b>mantener</b> una aplicación y <b>adaptarla</b> a los cambios de la organización, además de <b>diseñarla</b> para que el usuario tuviera el control de manera simple desde un menú. Optimizó muchas tareas del departamento y la duración de algunas se redujo de 2 horas a poco menos de 10 minutos.",
+      "frameworks": "VBA, Excel",
+      "year": "2020",
+      "duration": "3 años",
+      "tools": "MS Excel, Sharepoint",
+      "github": "",
+      "images": [],
+      "imagesPerRow": "0"
     }
   }
 }

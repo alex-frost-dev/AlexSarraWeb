@@ -6,7 +6,7 @@
   
   <div class="gallery-images">
     <div class="gallery-image-container" *ngFor="let img of visibleImages">
-      <img class="gallery-image movable" [src]="img" (click)="sendImage(img)"/>
+      <img class="gallery-image" [src]="img" (click)="sendImage(img)"/>
     </div>
   </div>
   <button class="arrow-button" *ngIf="this.arrowsNeeded" (click)="next()" [disabled]="endIndex >= images.length">

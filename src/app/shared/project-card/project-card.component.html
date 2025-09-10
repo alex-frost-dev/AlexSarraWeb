@@ -1,7 +1,65 @@
-<div class="card-container">
+<button (click)="darkModeService.toggleDarkMode()">HEY</button>
+<div class="text-black dark:text-white">
+  <div class="grid w-fit grid-cols-2 grid-rows-3 gap-3 border">
+    <div class="col-1 row-1 inline-flex items-baseline gap-4 border">
+      <a
+        [innerHTML]="this.projectPrefix + '.name' | translate"
+        href="/projects/{{ this.projectName }}"
+      ></a>
+      <div class="h-auto w-8 object-cover" *ngIf="doJsonKeyExists('github')">
+        <a href="{{ this.projectPrefix + '.github' | translate }}">
+          <img
+            src="../../../assets/images/icons/github_black.png"
+            alt="GitHub hyperlink"
+          />
+        </a>
+      </div>
+    </div>
+
+    <div class="col-1 row-2 grid grid-cols-2 border">
+      <div class="col-1">
+        <p [innerHTML]="this.projectPrefix + '.description' | translate"></p>
+      </div>
+      <div class="col-2">
+        <div>
+          <p [innerHTML]="this.projectPrefix + '.frameworks' | translate"></p>
+        </div>
+        <div>
+          <div>
+            <u>{{ this.defaultsPrefix + ".year_label" | translate }}</u>
+            <p>{{ this.projectPrefix + ".year" | translate }}</p>
+          </div>
+          <div>
+            <u>{{ this.defaultsPrefix + ".duration_label" | translate }}</u>
+            <p>{{ this.projectPrefix + ".duration" | translate }}</p>
+          </div>
+          <div>
+            <u>{{ this.defaultsPrefix + ".tools_label" | translate }}</u>
+            <p>{{ this.projectPrefix + ".tools" | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-image-gallery
+      class="col-1 row-3 border"
+      [maxNumItems]="this.jsonProject['imagesPerRow']"
+      [images]="this.projectPrefix + '.images' | translate"
+      (imageClicked)="handleClickedImage($event)"
+    ></app-image-gallery>
+
+    <div class="col-2 row-span-full border">
+      <img src="{{ this.previewImage }}" (click)="openPreviewedImage()" />
+    </div>
+  </div>
+
+  <!-- <div class="card-container">
+    <div *ngIf="this.invertedCard && this.images.length != 0" class="preview-image">
+        <img src="{{this.previewImage}}" (click)="openPreviewedImage()">
+    </div>
     <div class="project-container">
         <div class="project-title-container">
-            <p [innerHTML]="this.projectPrefix + '.name' | translate"></p>
+            <a class="title" [innerHTML]="this.projectPrefix + '.name' | translate"
+                href="/projects/{{this.projectName}}"></a>
             <div *ngIf="doJsonKeyExists('github')">
                 <a href="{{this.projectPrefix + '.github' | translate}}">
                     <img class="github-icon" src="../../../assets/images/icons/github_white.png">
@@ -33,9 +91,11 @@
             </div>
         </div>
         <app-image-gallery [maxNumItems]="this.jsonProject['imagesPerRow']"
-            [images]="this.projectPrefix + '.images' | translate" (imageClicked)="handleClickedImage($event)"></app-image-gallery>
+            [images]="this.projectPrefix + '.images' | translate"
+            (imageClicked)="handleClickedImage($event)"></app-image-gallery>
     </div>
-    <div class="preview-image">
+    <div *ngIf="!this.invertedCard && this.images.length != 0" class="preview-image">
         <img src="{{this.previewImage}}" (click)="openPreviewedImage()">
     </div>
+</div> -->
 </div>

@@ -1,20 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-html, body {
-    height: 100%;
-
+html,
+body {
+  height: 100%;
 }
 body {
-    --font-color: white;
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    color: white;
-    background-image: url("./assets/images/background/background_dark_sand.jpg");
-    background-position: center center;
-    background-origin: border-box;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    min-height: 100vh;
-    min-width: 100vw;
+  --font-color: white;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
