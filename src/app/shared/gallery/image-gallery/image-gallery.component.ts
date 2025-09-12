@@ -7,11 +7,9 @@ import { MatDialog } from '@angular/material/dialog';
   selector: 'app-image-gallery',
   imports: [CommonModule],
   templateUrl: './image-gallery.component.html',
-  styleUrl: './image-gallery.component.css'
+  styleUrl: './image-gallery.component.css',
 })
-
 export class GalleryComponent {
-
   startIndex = 0;
   endIndex = 0;
   @Input() images!: string[];
@@ -20,17 +18,18 @@ export class GalleryComponent {
 
   @Output() imageClicked = new EventEmitter<string>();
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit() {
     this.endIndex = this.maxNumItems;
     if (this.images.length > this.maxNumItems) {
-        this.arrowsNeeded = true;
+      this.arrowsNeeded = true;
     }
   }
 
   get visibleImages() {
-    return this.images.slice(this.startIndex, this.endIndex);
+    // return this.images.slice(this.startIndex, this.endIndex);
+    return this.images;
   }
 
   prev() {
@@ -52,6 +51,6 @@ export class GalleryComponent {
   }
 
   getImageName(path: string) {
-    return path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
+    return path.substring(path.lastIndexOf('/') + 1, path.lastIndexOf('.'));
   }
 }

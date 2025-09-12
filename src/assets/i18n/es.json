@@ -8,7 +8,10 @@
     "gestor_facturas": {
       "name": "Gestión de facturas de traducción",
       "description": "Programa con <b>GUI</b> que genera facturas enfocadas al sector de la traducción. Utiliza una base de datos <b>JSON</b> y la biblioteca <b>Java Swing</b>. Recupera la información fiscal de los clientes guardados y la combina con los datos introducidos del servicio. También permite crear y modificar clientes de una forma muy sencilla y buscar facturas por número, importe o cliente. Un último módulo dedicado a varias configuraciones que ceden al usuario el control sobre aspectos visuales de la IU y las las factura generadas. Sigo recibiendo feedback del usuario y actualizando según sus necesidades.",
-      "frameworks": "Java Swing, JSON<br><i><small>migrado desde Hibernate/PostgreSQL</small></i>",
+      "frameworks": {
+        "title": "Java Swing, JSON",
+        "secondary": "<i><small>migrado desde Hibernate/PostgreSQL</small></i>"
+      },
       "year": "2024",
       "duration": "1 mes",
       "tools": "NetBeans, PostgreSQL",

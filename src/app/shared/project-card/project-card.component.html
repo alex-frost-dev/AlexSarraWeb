@@ -1,54 +1,126 @@
-<button (click)="darkModeService.toggleDarkMode()">HEY</button>
-<div class="text-black dark:text-white">
-  <div class="grid w-fit grid-cols-2 grid-rows-3 gap-3 border">
-    <div class="col-1 row-1 inline-flex items-baseline gap-4 border">
+<!-- <button
+  class="border p-2 text-black dark:text-white"
+  (click)="darkModeService.toggleDarkMode()"
+>
+  DARK MODE
+</button> -->
+<div
+  class="w-4/7 grid h-[32rem] grid-cols-[2fr_1fr] grid-rows-[0.6fr_3fr_2fr] gap-5 text-black dark:text-white"
+>
+  <!-- PROJECT TITLE -->
+  <div
+    class="col-start-1 row-start-1 inline-flex items-center gap-4 text-[length:--min-font-size-title] sm:text-[length:--sm-font-size-title] md:text-[length:--md-font-size-title] lg:text-[length:--lg-font-size-title] xl:text-[length:--xl-font-size-title]"
+  >
+    <a
+      [innerHTML]="this.projectPrefix + '.name' | translate"
+      href="/projects/{{ this.projectName }}"
+    ></a>
+    @if (doJsonKeyExists("github")) {
       <a
-        [innerHTML]="this.projectPrefix + '.name' | translate"
-        href="/projects/{{ this.projectName }}"
-      ></a>
-      <div class="h-auto w-8 object-cover" *ngIf="doJsonKeyExists('github')">
-        <a href="{{ this.projectPrefix + '.github' | translate }}">
-          <img
-            src="../../../assets/images/icons/github_black.png"
-            alt="GitHub hyperlink"
-          />
-        </a>
-      </div>
-    </div>
+        class="h-auto w-8 align-baseline"
+        href="{{ this.projectPrefix + '.github' | translate }}"
+      >
+        <!-- Black GitHub link for light mode -->
+        <img
+          src="/assets/images/icons/github_black.png"
+          alt="GitHub logo link"
+          class="block align-baseline dark:hidden"
+        />
+        <!-- White GitHub link for dark mode -->
+        <img
+          src="/assets/images/icons/github_white.png"
+          alt="GitHub logo link"
+          class="hidden align-baseline dark:block"
+        />
+      </a>
+    }
+  </div>
 
-    <div class="col-1 row-2 grid grid-cols-2 border">
-      <div class="col-1">
-        <p [innerHTML]="this.projectPrefix + '.description' | translate"></p>
-      </div>
-      <div class="col-2">
-        <div>
-          <p [innerHTML]="this.projectPrefix + '.frameworks' | translate"></p>
+  <!-- PROJECT DESCRIPTION -->
+  <div
+    class="col-start-1 row-start-2 grid grid-cols-[1.8fr_1fr] items-center text-[length:--min-font-size-normal-text] sm:text-[length:--sm-font-size-normal-text] md:text-[length:--md-font-size-normal-text] lg:text-[length:--lg-font-size-normal-text] xl:text-[length:--xl-font-size-normal-text]"
+  >
+    <div class="col-start-1">
+      <p [innerHTML]="this.projectPrefix + '.description' | translate"></p>
+    </div>
+    <!-- PROJECT META INFO -->
+    <div class="col-start-2 flex h-full w-full items-center align-middle">
+      <div class="grid grid-rows-[1fr_1.5fr]">
+        <div
+          class="row-start-1 flex flex-col items-center border-b-2 border-l-2 border-black pr-4 dark:border-white"
+        >
+          <p
+            [innerHTML]="this.projectPrefix + '.frameworks.title' | translate"
+          ></p>
+          <p
+            [innerHTML]="
+              this.projectPrefix + '.frameworks.secondary' | translate
+            "
+          ></p>
         </div>
-        <div>
-          <div>
-            <u>{{ this.defaultsPrefix + ".year_label" | translate }}</u>
+        <div class="row-start-2 grid grid-cols-[1fr_1fr_5fr]">
+          <div
+            class="cols-start-1 grid h-full w-full items-center justify-center border-l-2 border-r-2 border-black px-2 py-4 text-center dark:border-white"
+          >
+            <u class="self-start font-bold">{{
+              this.defaultsPrefix + ".year_label" | translate
+            }}</u>
             <p>{{ this.projectPrefix + ".year" | translate }}</p>
           </div>
-          <div>
-            <u>{{ this.defaultsPrefix + ".duration_label" | translate }}</u>
+          <div
+            class="cols-start-2 grid h-full w-full auto-rows-auto items-center justify-center border-r-2 border-black px-2 py-4 text-center dark:border-white"
+          >
+            <u class="self-start font-bold">{{
+              this.defaultsPrefix + ".duration_label" | translate
+            }}</u>
             <p>{{ this.projectPrefix + ".duration" | translate }}</p>
           </div>
-          <div>
-            <u>{{ this.defaultsPrefix + ".tools_label" | translate }}</u>
-            <p>{{ this.projectPrefix + ".tools" | translate }}</p>
+          <div
+            class="cols-start-3 grid h-full w-full items-center justify-center px-2 py-4 text-center"
+          >
+            <u class="self-start font-bold">{{
+              this.defaultsPrefix + ".tools_label" | translate
+            }}</u>
+            <p [innerHTML]="this.projectPrefix + '.tools' | translate"></p>
           </div>
         </div>
       </div>
     </div>
-    <app-image-gallery
-      class="col-1 row-3 border"
-      [maxNumItems]="this.jsonProject['imagesPerRow']"
-      [images]="this.projectPrefix + '.images' | translate"
-      (imageClicked)="handleClickedImage($event)"
-    ></app-image-gallery>
+  </div>
 
-    <div class="col-2 row-span-full border">
-      <img src="{{ this.previewImage }}" (click)="openPreviewedImage()" />
+  <!-- PROJECT GALLERY -->
+  <app-image-gallery
+    class="col-start-1 row-start-3 border-y-2 border-y-slate-500"
+    [maxNumItems]="this.jsonProject['imagesPerRow']"
+    [images]="this.projectPrefix + '.images' | translate"
+    (imageClicked)="handleClickedImage($event)"
+  ></app-image-gallery>
+
+  <!-- PROJECT PREVIEW IMAGE -->
+  <div
+    class="relative col-start-2 row-span-full row-start-1 flex items-center justify-center"
+  >
+    <div class="group h-full object-cover">
+      <!-- This div is only for the hovering (magnif glass) to be synced with the area of the IMG and not the parent DIV-->
+      <img
+        class="max-h-full max-w-full cursor-pointer rounded object-contain hover:blur-[0.75px]"
+        src="{{ this.previewImage }}"
+        (click)="openPreviewedImage()"
+      />
+      <span
+        class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-12 w-12 text-white drop-shadow-lg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <circle cx="11" cy="11" r="8" stroke-width="2" />
+          <line x1="24" y1="24" x2="16.65" y2="16.65" stroke-width="2" />
+        </svg>
+      </span>
     </div>
   </div>
 </div>

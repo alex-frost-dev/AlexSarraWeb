@@ -1,15 +1,42 @@
-<!-- gallery.component.html -->
-<div class="gallery">
-  <button class="arrow-button" *ngIf="this.arrowsNeeded" (click)="prev()" [disabled]="startIndex === 0">
-    <img src="assets/images/icons/big_left_arrow_white.png">
-  </button>
-  
-  <div class="gallery-images">
-    <div class="gallery-image-container" *ngFor="let img of visibleImages">
-      <img class="gallery-image" [src]="img" (click)="sendImage(img)"/>
+<div class="flex h-full flex-row items-center">
+  <!-- @if (this.arrowsNeeded) {
+    <button class="size-16" (click)="prev()" [disabled]="startIndex === 0">
+      <img
+        class="block size-16 dark:hidden"
+        src="assets/images/icons/big_left_arrow_black.png"
+      />
+      <img
+        class="hidden size-16 dark:block"
+        src="assets/images/icons/big_left_arrow_white.png"
+      />
+    </button>
+  } -->
+
+  <div class="flex flex-row items-center gap-4 px-4 py-4">
+    <div class="flex w-auto justify-center" *ngFor="let img of visibleImages">
+      <img
+        class="max-h-40 cursor-pointer rounded duration-150 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/50"
+        [src]="img"
+        (click)="sendImage(img)"
+      />
     </div>
   </div>
-  <button class="arrow-button" *ngIf="this.arrowsNeeded" (click)="next()" [disabled]="endIndex >= images.length">
-    <img src="assets/images/icons/big_right_arrow_white.png">
-  </button>
+  <!-- @if (this.arrowsNeeded) {
+    <button
+      class="size-16"
+      *ngIf="this.arrowsNeeded"
+      (click)="next()"
+      [disabled]="endIndex >= images.length"
+    >
+      <img
+        class="block size-16 dark:hidden"
+        src="assets/images/icons/big_right_arrow_black.png"
+      />
+
+      <img
+        class="hidden size-16 dark:block"
+        src="assets/images/icons/big_right_arrow_white.png"
+      />
+    </button>
+  } -->
 </div>
