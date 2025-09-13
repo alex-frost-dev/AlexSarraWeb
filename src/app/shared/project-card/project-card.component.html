@@ -52,45 +52,56 @@
     </div>
     <!-- PROJECT META INFO -->
     <div class="col-start-2 flex h-auto w-full items-center align-middle">
-      <div class="grid w-full grid-rows-[1fr_1.5fr]">
+      <div class="grid w-full auto-rows-auto grid-rows-2">
+        <!-- Frameworks -->
         <div
-          class="row-start-1 flex flex-col items-center border-b-2 border-l-2 border-black pr-4 dark:border-white"
+          class="row-start-1 flex flex-col items-center justify-center border-b-2 border-l-2 border-black pr-4 dark:border-white"
         >
           <p
-            class="text-center"
+            class="justify-center"
             [innerHTML]="this.projectPrefix + '.frameworks.title' | translate"
           ></p>
           <p
-            class="text-center"
+            class="justify-center"
             [innerHTML]="
               this.projectPrefix + '.frameworks.secondary' | translate
             "
           ></p>
         </div>
-        <div class="row-start-2 grid w-full grid-cols-[1fr_1fr_5fr]">
+        <div class="row-start-2 flex w-full">
+          <!-- Year -->
           <div
-            class="cols-start-1 grid h-full w-full items-center justify-center border-l-2 border-r-2 border-black px-0.5 py-4 text-center dark:border-white md:px-2"
+            class="flex flex-col justify-start border-l-2 border-r-2 border-black px-0.5 py-4 text-center dark:border-white md:px-2"
           >
-            <u class="self-start font-bold">{{
+            <u class="self-center font-bold">{{
               this.defaultsPrefix + ".year_label" | translate
             }}</u>
-            <p>{{ this.projectPrefix + ".year" | translate }}</p>
+            <p class="self-center">
+              {{ this.projectPrefix + ".year" | translate }}
+            </p>
           </div>
+          <!-- Duration -->
           <div
-            class="cols-start-2 grid h-full w-full auto-rows-auto items-center justify-center border-r-2 border-black px-0.5 py-4 text-center dark:border-white md:px-2"
+            class="flex flex-col justify-start border-r-2 border-black px-0.5 py-4 text-center dark:border-white md:px-2"
           >
-            <u class="self-start font-bold">{{
+            <u class="self-center font-bold">{{
               this.defaultsPrefix + ".duration_label" | translate
             }}</u>
-            <p>{{ this.projectPrefix + ".duration" | translate }}</p>
+            <p class="self-center">
+              {{ this.projectPrefix + ".duration" | translate }}
+            </p>
           </div>
+          <!-- Tools -->
           <div
-            class="cols-start-3 grid h-full w-full items-center justify-center px-0.5 py-4 text-center md:px-2"
+            class="flex flex-col items-center justify-start px-0.5 py-4 text-center md:px-2"
           >
-            <u class="self-start font-bold">{{
+            <u class="self-center font-bold">{{
               this.defaultsPrefix + ".tools_label" | translate
             }}</u>
-            <p [innerHTML]="this.projectPrefix + '.tools' | translate"></p>
+            <p
+              class="self-center"
+              [innerHTML]="this.projectPrefix + '.tools' | translate"
+            ></p>
           </div>
         </div>
       </div>
