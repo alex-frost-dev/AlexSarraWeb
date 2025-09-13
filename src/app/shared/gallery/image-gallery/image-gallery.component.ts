@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ImageGalleryWindowComponent } from '../image-gallery-window/image-gallery-window.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ImageGalleryWindowComponent } from './image-gallery-window.component';
+import { ImageGalleryWindowComponent } from './image-modal-window.component';
 
 describe('ImageGalleryWindowComponent', () => {
   let component: ImageGalleryWindowComponent;
@@ -8,9 +8,8 @@ describe('ImageGalleryWindowComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ImageGalleryWindowComponent]
-    })
-    .compileComponents();
+      imports: [ImageGalleryWindowComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ImageGalleryWindowComponent);
     component = fixture.componentInstance;

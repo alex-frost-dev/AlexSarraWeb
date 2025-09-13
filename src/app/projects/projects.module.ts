@@ -4,7 +4,7 @@ import { ProjectsListPageComponent } from './pages/projects-list-page/projects-l
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { TranslatePipe, TranslateDirective } from '@ngx-translate/core';
 import { GalleryComponent } from '../shared/gallery/image-gallery/image-gallery.component';
-import { ImageGalleryWindowComponent } from '../shared/gallery/image-gallery-window/image-gallery-window.component';
+import { ImageModalWindowComponent } from '../shared/gallery/image-modal-window/image-modal-window.component';
 import { ProjectCardComponent } from '../shared/project-card/project-card.component';
 
 @NgModule({
@@ -15,8 +15,8 @@ import { ProjectCardComponent } from '../shared/project-card/project-card.compon
     TranslatePipe,
     TranslateDirective,
     GalleryComponent,
-    ImageGalleryWindowComponent,
-    ProjectCardComponent
-  ]
+    ImageModalWindowComponent,
+    ProjectCardComponent,
+  ],
 })
-export class ProjectsModule { }
+export class ProjectsModule {}

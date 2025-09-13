@@ -1,4 +1,4 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import {
   TranslateDirective,
   TranslatePipe,
@@ -9,19 +9,27 @@ import { GalleryComponent } from '../gallery/image-gallery/image-gallery.compone
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
-import { ImageGalleryWindowComponent } from '../gallery/image-gallery-window/image-gallery-window.component';
+import { ImageModalWindowComponent } from '../gallery/image-modal-window/image-modal-window.component';
 import { waitForAsync } from '@angular/core/testing';
 import { DarkModeService } from '../services/dark-mode/dark-mode.service';
+import { ImagePreviewComponent } from '../gallery/image-preview/image-preview/image-preview.component';
 
 @Component({
   selector: 'project-card',
   templateUrl: './project-card.component.html',
   styleUrls: ['./project-card.component.css'],
-  imports: [TranslatePipe, GalleryComponent, CommonModule],
+  imports: [
+    TranslatePipe,
+    GalleryComponent,
+    CommonModule,
+    ImagePreviewComponent,
+  ],
   standalone: true,
 })
 export class ProjectCardComponent {
   @Input() projectName!: string;
+  @Input() isInverted!: boolean;
+  @Output() previewedImage = new EventEmitter<string>();
 
   jsonProject!: any;
   labels!: any;
@@ -30,14 +38,11 @@ export class ProjectCardComponent {
   defaultsPrefix: string = this.projectPrefix + '.defaults';
 
   images!: string[];
-  previewImage!: string;
+  currentPreviewImage!: string;
 
   constructor(
     @Inject(LanguageService) private lang: any,
-    private languageService: LanguageService,
-    private translateService: TranslateService,
     private http: HttpClient,
-    private dialog: MatDialog,
     public darkModeService: DarkModeService,
   ) {}
 
@@ -50,32 +55,16 @@ export class ProjectCardComponent {
         this.jsonProject = json['projects'][this.projectName];
         this.labels = json['projects']['defaults'];
         this.images = this.jsonProject['images'];
-        this.previewImage = this.images[0];
+        this.currentPreviewImage = this.images[0];
       });
     waitForAsync;
-
-    // const json = await firstValueFrom(this.http.get<any>(`../../../assets/i18n/${this.language}.json`));
-    // this.jsonProject = json["projects"][this.projectName];
-    // this.labels = json["projects"]["defaults"];
-    // this.images = this.jsonProject["images"];
-    // this.previewImage = this.images[0];
-    // console.log("done load.");
   }
 
   doJsonKeyExists(key: string) {
     return this.jsonProject[key] != '';
   }
 
-  openPreviewedImage() {
-    this.dialog.open(ImageGalleryWindowComponent, {
-      data: {
-        src: this.previewImage,
-        images: this.images,
-      },
-    });
-  }
-
   handleClickedImage(newImage: any) {
-    this.previewImage = newImage;
+    this.currentPreviewImage = newImage;
   }
 }

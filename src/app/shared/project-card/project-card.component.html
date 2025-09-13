@@ -5,11 +5,17 @@
   DARK MODE
 </button> -->
 <div
-  class="w-4/7 grid h-[32rem] grid-cols-[2fr_1fr] grid-rows-[0.6fr_3fr_2fr] gap-5 text-black dark:text-white"
+  class="w-4/7 grid max-h-[45vh] grid-rows-[0.1fr_0.1fr_0.1fr] gap-2 text-black dark:text-white md:grid-rows-[0.2fr_0.5fr_0.3fr] md:gap-6"
+  [ngClass]="
+    this.isInverted
+      ? 'grid-cols-[1fr_2fr] md:grid-cols-[1fr_2fr]'
+      : 'grid-cols-[2fr_1fr] md:grid-cols-[2fr_1fr]'
+  "
 >
   <!-- PROJECT TITLE -->
   <div
-    class="col-start-1 row-start-1 inline-flex items-center gap-4 text-[length:--min-font-size-title] sm:text-[length:--sm-font-size-title] md:text-[length:--md-font-size-title] lg:text-[length:--lg-font-size-title] xl:text-[length:--xl-font-size-title]"
+    class="row-start-1 inline-flex h-auto items-center gap-2 text-[length:--min-font-size-title] sm:text-[length:--sm-font-size-title] md:gap-4 md:text-[length:--md-font-size-title] lg:text-[length:--lg-font-size-title] xl:text-[length:--xl-font-size-title]"
+    [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
   >
     <a
       [innerHTML]="this.projectPrefix + '.name' | translate"
@@ -30,7 +36,7 @@
         <img
           src="/assets/images/icons/github_white.png"
           alt="GitHub logo link"
-          class="hidden align-baseline dark:block"
+          class="hidden w-4 align-baseline dark:block sm:w-5 md:w-6 lg:w-8"
         />
       </a>
     }
@@ -38,29 +44,32 @@
 
   <!-- PROJECT DESCRIPTION -->
   <div
-    class="col-start-1 row-start-2 grid grid-cols-[1.8fr_1fr] items-center text-[length:--min-font-size-normal-text] sm:text-[length:--sm-font-size-normal-text] md:text-[length:--md-font-size-normal-text] lg:text-[length:--lg-font-size-normal-text] xl:text-[length:--xl-font-size-normal-text]"
+    [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
+    class="col-start-1 row-start-2 grid h-auto grid-cols-[4fr_1fr] items-center gap-4 text-[length:--min-font-size-normal-text] sm:text-[length:--sm-font-size-normal-text] md:text-[length:--md-font-size-normal-text] lg:text-[length:--lg-font-size-normal-text] xl:text-[length:--xl-font-size-normal-text]"
   >
     <div class="col-start-1">
       <p [innerHTML]="this.projectPrefix + '.description' | translate"></p>
     </div>
     <!-- PROJECT META INFO -->
-    <div class="col-start-2 flex h-full w-full items-center align-middle">
-      <div class="grid grid-rows-[1fr_1.5fr]">
+    <div class="col-start-2 flex h-auto w-full items-center align-middle">
+      <div class="grid w-full grid-rows-[1fr_1.5fr]">
         <div
           class="row-start-1 flex flex-col items-center border-b-2 border-l-2 border-black pr-4 dark:border-white"
         >
           <p
+            class="text-center"
             [innerHTML]="this.projectPrefix + '.frameworks.title' | translate"
           ></p>
           <p
+            class="text-center"
             [innerHTML]="
               this.projectPrefix + '.frameworks.secondary' | translate
             "
           ></p>
         </div>
-        <div class="row-start-2 grid grid-cols-[1fr_1fr_5fr]">
+        <div class="row-start-2 grid w-full grid-cols-[1fr_1fr_5fr]">
           <div
-            class="cols-start-1 grid h-full w-full items-center justify-center border-l-2 border-r-2 border-black px-2 py-4 text-center dark:border-white"
+            class="cols-start-1 grid h-full w-full items-center justify-center border-l-2 border-r-2 border-black px-0.5 py-4 text-center dark:border-white md:px-2"
           >
             <u class="self-start font-bold">{{
               this.defaultsPrefix + ".year_label" | translate
@@ -68,7 +77,7 @@
             <p>{{ this.projectPrefix + ".year" | translate }}</p>
           </div>
           <div
-            class="cols-start-2 grid h-full w-full auto-rows-auto items-center justify-center border-r-2 border-black px-2 py-4 text-center dark:border-white"
+            class="cols-start-2 grid h-full w-full auto-rows-auto items-center justify-center border-r-2 border-black px-0.5 py-4 text-center dark:border-white md:px-2"
           >
             <u class="self-start font-bold">{{
               this.defaultsPrefix + ".duration_label" | translate
@@ -76,7 +85,7 @@
             <p>{{ this.projectPrefix + ".duration" | translate }}</p>
           </div>
           <div
-            class="cols-start-3 grid h-full w-full items-center justify-center px-2 py-4 text-center"
+            class="cols-start-3 grid h-full w-full items-center justify-center px-0.5 py-4 text-center md:px-2"
           >
             <u class="self-start font-bold">{{
               this.defaultsPrefix + ".tools_label" | translate
@@ -90,7 +99,8 @@
 
   <!-- PROJECT GALLERY -->
   <app-image-gallery
-    class="col-start-1 row-start-3 border-y-2 border-y-slate-500"
+    [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
+    class="row-start-3 flex h-auto align-middle"
     [maxNumItems]="this.jsonProject['imagesPerRow']"
     [images]="this.projectPrefix + '.images' | translate"
     (imageClicked)="handleClickedImage($event)"
@@ -98,29 +108,13 @@
 
   <!-- PROJECT PREVIEW IMAGE -->
   <div
-    class="relative col-start-2 row-span-full row-start-1 flex items-center justify-center"
+    class="row-span-full row-start-1 flex h-full w-full items-center justify-center"
   >
-    <div class="group h-full object-cover">
-      <!-- This div is only for the hovering (magnif glass) to be synced with the area of the IMG and not the parent DIV-->
-      <img
-        class="max-h-full max-w-full cursor-pointer rounded object-contain hover:blur-[0.75px]"
-        src="{{ this.previewImage }}"
-        (click)="openPreviewedImage()"
-      />
-      <span
-        class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-12 w-12 text-white drop-shadow-lg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <circle cx="11" cy="11" r="8" stroke-width="2" />
-          <line x1="24" y1="24" x2="16.65" y2="16.65" stroke-width="2" />
-        </svg>
-      </span>
-    </div>
+    <app-image-preview
+      [ngClass]="this.isInverted ? 'col-start-1' : 'col-start-2'"
+      [images]="this.images"
+      [currentPreviewImage]="this.currentPreviewImage"
+      class="h-full max-h-full object-contain"
+    ></app-image-preview>
   </div>
 </div>

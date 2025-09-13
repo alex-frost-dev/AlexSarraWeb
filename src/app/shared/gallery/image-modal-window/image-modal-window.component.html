@@ -1,0 +1,83 @@
+<div
+  class="fixed left-0 top-0 z-50 flex h-full w-full justify-center bg-black bg-opacity-80 align-middle"
+  (click)="close()"
+>
+  <div
+    class="grid h-[90vh] w-[80vw] grid-cols-[0.05_1fr] grid-rows-[0.1fr_1fr_0.1fr]"
+  >
+    <div
+      class="col-start-3 row-start-1 cursor-pointer text-5xl text-black dark:text-white"
+    >
+      <p (click)="close()">&times;</p>
+    </div>
+    <div
+      class="grid-cols[0.2fr_2fr_0.2fr] col-span-3 col-start-1 row-start-2 grid h-[80vh] w-[80vw]"
+    >
+      <!-- LEFT ARROW -->
+      <div
+        class="col-start-1 flex w-full justify-end self-center overflow-hidden"
+      >
+        <img
+          class="block w-16 cursor-pointer self-end dark:hidden"
+          *ngIf="startIndex != currentSrcIndex"
+          src="assets/images/icons/big_left_arrow_black.png"
+          (click)="$event.stopPropagation(); prev()"
+        />
+
+        <!-- dark mode -->
+        <img
+          class="hidden w-16 cursor-pointer self-end dark:block"
+          *ngIf="startIndex != currentSrcIndex"
+          src="assets/images/icons/big_left_arrow_white.png"
+          (click)="$event.stopPropagation(); prev()"
+        />
+
+        <!-- If it's the first image it cannot go to the left again: it greys out and disables itself. -->
+        <img
+          class="w-16 self-end"
+          *ngIf="startIndex == currentSrcIndex"
+          src="assets/images/icons/big_left_arrow_grey.png"
+          (click)="$event.stopPropagation(); prev()"
+        />
+      </div>
+
+      <!-- IMAGE -->
+      <div
+        class="col-start-2 flex h-[80vh] w-[75vw] justify-center self-center"
+      >
+        <img
+          class="max-h-full max-w-full object-contain"
+          [src]="images[currentSrcIndex]"
+          (click)="$event.stopPropagation()"
+          alt="Image"
+        />
+      </div>
+
+      <!-- RIGHT ARROW -->
+      <div
+        class="col-start-3 flex w-full justify-start self-center overflow-hidden"
+      >
+        <img
+          class="block w-16 cursor-pointer self-end dark:hidden"
+          *ngIf="endIndex != currentSrcIndex"
+          src="assets/images/icons/big_right_arrow_black.png"
+          (click)="$event.stopPropagation(); next()"
+        />
+        <!-- dark mode -->
+        <img
+          class="hidden w-16 cursor-pointer self-end dark:block"
+          *ngIf="endIndex != currentSrcIndex"
+          src="assets/images/icons/big_right_arrow_white.png"
+          (click)="$event.stopPropagation(); next()"
+        />
+        <!-- If it's the last image it cannot go to the right again: it greys out and disables itself. -->
+        <img
+          class="w-16 self-end"
+          *ngIf="endIndex == currentSrcIndex"
+          src="assets/images/icons/big_right_arrow_grey.png"
+          (click)="$event.stopPropagation(); next()"
+        />
+      </div>
+    </div>
+  </div>
+</div>

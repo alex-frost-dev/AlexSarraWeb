@@ -1,42 +1,11 @@
-<div class="flex h-full flex-row items-center">
-  <!-- @if (this.arrowsNeeded) {
-    <button class="size-16" (click)="prev()" [disabled]="startIndex === 0">
-      <img
-        class="block size-16 dark:hidden"
-        src="assets/images/icons/big_left_arrow_black.png"
-      />
-      <img
-        class="hidden size-16 dark:block"
-        src="assets/images/icons/big_left_arrow_white.png"
-      />
-    </button>
-  } -->
-
-  <div class="flex flex-row items-center gap-4 px-4 py-4">
+<div class="flex h-auto flex-row items-center">
+  <div class="flex flex-row items-center gap-4">
     <div class="flex w-auto justify-center" *ngFor="let img of visibleImages">
       <img
-        class="max-h-40 cursor-pointer rounded duration-150 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/50"
+        class="max-h-40 cursor-pointer rounded duration-150 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-white/20"
         [src]="img"
         (click)="sendImage(img)"
       />
     </div>
   </div>
-  <!-- @if (this.arrowsNeeded) {
-    <button
-      class="size-16"
-      *ngIf="this.arrowsNeeded"
-      (click)="next()"
-      [disabled]="endIndex >= images.length"
-    >
-      <img
-        class="block size-16 dark:hidden"
-        src="assets/images/icons/big_right_arrow_black.png"
-      />
-
-      <img
-        class="hidden size-16 dark:block"
-        src="assets/images/icons/big_right_arrow_white.png"
-      />
-    </button>
-  } -->
 </div>
