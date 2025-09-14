@@ -11,8 +11,19 @@ import { MatDialog } from '@angular/material/dialog';
   standalone: true,
 })
 export class ImagePreviewComponent {
+  private _currentPreviewImage!: string;
+
   @Input() images!: string[];
-  @Input() currentPreviewImage!: string;
+  @Input() isInverted!: boolean;
+  @Input()
+  set currentPreviewImage(value: string) {
+    console.log('SETTING _currentPreviewImage');
+    this._currentPreviewImage = value;
+  }
+  get currentPreviewImage(): string {
+    console.log('GETTING _currentPreviewImage');
+    return this._currentPreviewImage;
+  }
 
   @ViewChild('img', { static: false }) img!: ElementRef<HTMLImageElement>;
   overlayStyle: any = {};

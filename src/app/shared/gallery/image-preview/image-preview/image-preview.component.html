@@ -1,15 +1,39 @@
 <div
-  class="relative flex h-full max-h-full w-full max-w-full items-center justify-center object-contain"
+  class="relative flex max-h-full w-full max-w-full items-center justify-center object-contain"
 >
-  <img
-    #img
-    class="h-96 max-h-full max-w-full cursor-pointer rounded object-contain duration-500 hover:blur-[0.75px]"
-    src="{{ this.currentPreviewImage }}"
-    (click)="openPreviewedImage()"
-    (load)="updateOverlay()"
-    (mouseenter)="isHovered = true"
-    (mouseleave)="isHovered = false"
-  />
+  <div
+    class="relative h-96 max-h-full w-full max-w-full justify-center object-contain"
+  >
+    @for (imgSrc of [this.currentPreviewImage]; track imgSrc) {
+      <div class="absolute inset-0 flex h-full w-full justify-center">
+        @if (!this.isInverted) {
+          <img
+            #img
+            class="max-h-full max-w-full cursor-pointer justify-center rounded object-contain duration-500 hover:blur-[0.75px]"
+            animate.enter="enter-animation-right"
+            animate.leave="exit-animation-right"
+            src="{{ imgSrc }}"
+            (click)="openPreviewedImage()"
+            (load)="updateOverlay()"
+            (mouseenter)="isHovered = true"
+            (mouseleave)="isHovered = false"
+          />
+        } @else {
+          <img
+            #img
+            class="max-h-full max-w-full cursor-pointer justify-center rounded object-contain duration-500 hover:blur-[0.75px]"
+            animate.enter="enter-animation-left"
+            animate.leave="exit-animation-left"
+            src="{{ imgSrc }}"
+            (click)="openPreviewedImage()"
+            (load)="updateOverlay()"
+            (mouseenter)="isHovered = true"
+            (mouseleave)="isHovered = false"
+          />
+        }
+      </div>
+    }
+  </div>
   <span
     class="pointer-events-none absolute inset-0 flex items-center justify-center transition-opacity duration-500"
     [ngStyle]="this.overlayStyle"
