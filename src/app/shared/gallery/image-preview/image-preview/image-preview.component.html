@@ -1,11 +1,11 @@
 <div
-  class="relative flex max-h-full w-full max-w-full items-center justify-center object-contain"
+  class="relative flex max-h-full w-full max-w-full items-center justify-center"
 >
   <div
-    class="relative h-96 max-h-full w-full max-w-full justify-center object-contain"
+    class="flex h-96 max-h-full w-full max-w-full flex-col items-center justify-center"
   >
     @for (imgSrc of [this.currentPreviewImage]; track imgSrc) {
-      <div class="absolute inset-0 flex h-full w-full justify-center">
+      <div class="inline-flex items-center justify-center">
         @if (!this.isInverted) {
           <img
             #img

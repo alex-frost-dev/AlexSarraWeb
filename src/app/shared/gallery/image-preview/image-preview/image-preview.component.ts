@@ -17,11 +17,9 @@ export class ImagePreviewComponent {
   @Input() isInverted!: boolean;
   @Input()
   set currentPreviewImage(value: string) {
-    console.log('SETTING _currentPreviewImage');
     this._currentPreviewImage = value;
   }
   get currentPreviewImage(): string {
-    console.log('GETTING _currentPreviewImage');
     return this._currentPreviewImage;
   }
 

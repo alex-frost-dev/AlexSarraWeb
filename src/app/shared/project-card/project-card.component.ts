@@ -53,7 +53,16 @@ export class ProjectCardComponent {
   }
 
   doJsonKeyExists(key: string) {
-    return this.jsonProject[key] != undefined;
+    // Check for nested keys
+    const keys = key.split('.');
+    let obj = this.jsonProject;
+    for (const key of keys) {
+      if (!(key in obj)) {
+        return false;
+      }
+      obj = obj[key];
+    }
+    return true;
   }
 
   handleClickedImage(newImage: any) {

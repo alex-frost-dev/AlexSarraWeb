@@ -55,12 +55,14 @@
             class="justify-center"
             [innerHTML]="this.projectPrefix + '.frameworks.title' | translate"
           ></p>
-          <p
-            class="justify-center"
-            [innerHTML]="
-              this.projectPrefix + '.frameworks.secondary' | translate
-            "
-          ></p>
+          @if (this.jsonProject && doJsonKeyExists("frameworks.secondary")) {
+            <p
+              class="justify-center"
+              [innerHTML]="
+                this.projectPrefix + '.frameworks.secondary' | translate
+              "
+            ></p>
+          }
         </div>
         <div class="row-start-2 flex w-full">
           <!-- Year -->
