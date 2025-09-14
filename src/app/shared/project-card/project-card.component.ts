@@ -1,17 +1,10 @@
 import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
-import {
-  TranslateDirective,
-  TranslatePipe,
-  TranslateService,
-} from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageService } from '../language/language.service';
 import { GalleryComponent } from '../gallery/image-gallery/image-gallery.component';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { MatDialog } from '@angular/material/dialog';
-import { ImageModalWindowComponent } from '../gallery/image-modal-window/image-modal-window.component';
 import { waitForAsync } from '@angular/core/testing';
-import { DarkModeService } from '../services/dark-mode/dark-mode.service';
 import { ImagePreviewComponent } from '../gallery/image-preview/image-preview/image-preview.component';
 
 @Component({
@@ -43,7 +36,6 @@ export class ProjectCardComponent {
   constructor(
     @Inject(LanguageService) private lang: any,
     private http: HttpClient,
-    public darkModeService: DarkModeService,
   ) {}
 
   ngOnInit() {
@@ -61,7 +53,7 @@ export class ProjectCardComponent {
   }
 
   doJsonKeyExists(key: string) {
-    return this.jsonProject[key] != '';
+    return this.jsonProject[key] != undefined;
   }
 
   handleClickedImage(newImage: any) {

@@ -23,7 +23,10 @@ export class ImagePreviewComponent {
   constructor(private dialog: MatDialog) {}
 
   ngOnInit() {
-    this.currentPreviewImage = this.images[0];
+    // Images could delay a little between page load and the parent's json call response.
+    if (this.images) {
+      this.currentPreviewImage = this.images[0];
+    }
   }
 
   ngAfterViewInit() {

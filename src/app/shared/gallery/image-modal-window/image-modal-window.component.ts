@@ -49,7 +49,6 @@ export class ImageModalWindowComponent {
   ngOnInit() {}
 
   prev() {
-    console.log('previous');
     if (this.startIndex < this.currentSrcIndex) {
       this.currentSrcIndex--;
     }
@@ -64,7 +63,6 @@ export class ImageModalWindowComponent {
   close() {
     if (this.canClose) {
       this.dialogRef.close();
-      console.log('closing...');
     }
   }
 }
