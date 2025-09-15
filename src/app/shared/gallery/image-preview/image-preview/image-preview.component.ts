@@ -12,13 +12,16 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ImagePreviewComponent {
   public previousPreviewImage!: string | null;
+  public imagesQueue: string[] = [];
   private _currentPreviewImage!: string | null;
 
   @Input() images!: string[];
   @Input() isInverted!: boolean;
   @Input()
   set currentPreviewImage(value: string) {
+    // We use changes in a private variable because the public one is a trigger to push to imagesQueue
     this._currentPreviewImage = value;
+    this.imagesQueue.push(value);
   }
   get currentPreviewImage(): string | null {
     return this._currentPreviewImage;
@@ -54,7 +57,7 @@ export class ImagePreviewComponent {
   openPreviewedImage() {
     this.dialog.open(ImageModalWindowComponent, {
       data: {
-        src: this.currentPreviewImage,
+        src: this._currentPreviewImage,
         images: this.images,
       },
     });
@@ -62,7 +65,6 @@ export class ImagePreviewComponent {
 
   updateOverlay() {
     if (this.img?.nativeElement) {
-      console.log(this.img?.nativeElement);
       const rect = this.img.nativeElement.getBoundingClientRect();
       this.spanOverlayStyle = {
         position: 'absolute',
@@ -72,7 +74,12 @@ export class ImagePreviewComponent {
         height: rect.height + 'px',
         pointerEvents: 'none',
       };
-      console.log(this.spanOverlayStyle);
+    }
+  }
+
+  cleanPreviousImages() {
+    if (this.imagesQueue.length > 1) {
+      this.imagesQueue.shift();
     }
   }
 }

@@ -34,6 +34,6 @@
 .leaving {
   opacity: 0;
   transition:
-    opacity 300ms ease-out,
-    transform 300ms ease-out;
+    opacity 200ms ease-out,
+    transform 200ms ease-out;
 }

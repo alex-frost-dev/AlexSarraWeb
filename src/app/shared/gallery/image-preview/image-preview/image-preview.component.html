@@ -7,10 +7,7 @@
     <div
       class="leave-container inline-flex max-h-full max-w-full items-center justify-center"
     >
-      @for (
-        imgSrc of [previousPreviewImage, currentPreviewImage];
-        track imgSrc
-      ) {
+      @for (imgSrc of imagesQueue; track imgSrc) {
         @if (!this.isInverted) {
           <img
             #img
@@ -20,6 +17,7 @@
             src="{{ imgSrc }}"
             (click)="openPreviewedImage()"
             (load)="updateOverlay()"
+            (animationstart)="cleanPreviousImages()"
             (mouseenter)="isHovered = true"
             (mouseleave)="isHovered = false"
           />
@@ -32,6 +30,7 @@
             src="{{ imgSrc }}"
             (click)="openPreviewedImage()"
             (load)="updateOverlay()"
+            (animationstart)="cleanPreviousImages()"
             (mouseenter)="isHovered = true"
             (mouseleave)="isHovered = false"
           />
