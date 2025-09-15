@@ -11,8 +11,7 @@
         @if (!this.isInverted) {
           <img
             #img
-            class="absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain transition-opacity duration-500 hover:blur-[0.75px]"
-            animate.enter="enter-animation-right"
+            class="enter-animation-right absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain duration-500 hover:blur-[0.75px]"
             animate.leave="leaving"
             src="{{ imgSrc }}"
             (click)="openPreviewedImage()"
@@ -24,8 +23,7 @@
         } @else {
           <img
             #img
-            class="absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain transition-opacity duration-500 hover:blur-[0.75px]"
-            animate.enter="enter-animation-left"
+            class="enter-animation-left absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain duration-500 hover:blur-[0.75px]"
             animate.leave="leaving"
             src="{{ imgSrc }}"
             (click)="openPreviewedImage()"

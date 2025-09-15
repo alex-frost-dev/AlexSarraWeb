@@ -1,5 +1,5 @@
 .enter-animation-right {
-  animation: slide-in-right 0.4s;
+  animation: slide-in-right 400ms;
 }
 
 @keyframes slide-in-right {
@@ -13,7 +13,7 @@
 }
 
 .enter-animation-left {
-  animation: slide-in-left 0.4s;
+  animation: slide-in-left 400ms;
 }
 
 @keyframes slide-in-left {
@@ -29,11 +29,22 @@
 .leave-container {
   opacity: 1;
   transition: opacity 200ms ease-in;
+  /* animation: fade-out 0.2s forwards; */
 }
 
 .leaving {
   opacity: 0;
-  transition:
+  /* transition:
     opacity 200ms ease-out,
-    transform 200ms ease-out;
+    transform 200ms ease-out; */
+  animation: fade-out 0.4s forwards;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

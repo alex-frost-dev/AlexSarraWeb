@@ -19,8 +19,9 @@ export class ImagePreviewComponent {
   @Input() isInverted!: boolean;
   @Input()
   set currentPreviewImage(value: string) {
-    // We use changes in a private variable because the public one is a trigger to push to imagesQueue
+    // This variable is only used in the openPreviewedImage() method.
     this._currentPreviewImage = value;
+    // Prevents duplicates
     this.imagesQueue.push(value);
   }
   get currentPreviewImage(): string | null {
@@ -80,6 +81,8 @@ export class ImagePreviewComponent {
   cleanPreviousImages() {
     if (this.imagesQueue.length > 1) {
       this.imagesQueue.shift();
+      // this.imagesQueue = [this.imagesQueue[this.imagesQueue.length - 1]];
     }
+    console.log(this.imagesQueue);
   }
 }
