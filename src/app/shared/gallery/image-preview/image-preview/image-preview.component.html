@@ -4,16 +4,19 @@
   <div
     class="flex h-96 max-h-full w-full max-w-full flex-col items-center justify-center"
   >
-    @for (imgSrc of [this.currentPreviewImage]; track imgSrc) {
-      <div
-        class="inline-flex max-h-full max-w-full items-center justify-center"
-      >
+    <div
+      class="leave-container inline-flex max-h-full max-w-full items-center justify-center"
+    >
+      @for (
+        imgSrc of [previousPreviewImage, currentPreviewImage];
+        track imgSrc
+      ) {
         @if (!this.isInverted) {
           <img
             #img
-            class="max-h-full max-w-full cursor-pointer justify-center rounded object-contain duration-500 hover:blur-[0.75px]"
+            class="absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain transition-opacity duration-500 hover:blur-[0.75px]"
             animate.enter="enter-animation-right"
-            animate.leave="exit-animation-right"
+            animate.leave="leaving"
             src="{{ imgSrc }}"
             (click)="openPreviewedImage()"
             (load)="updateOverlay()"
@@ -23,9 +26,9 @@
         } @else {
           <img
             #img
-            class="max-h-full max-w-full cursor-pointer justify-center rounded object-contain duration-500 hover:blur-[0.75px]"
+            class="absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain transition-opacity duration-500 hover:blur-[0.75px]"
             animate.enter="enter-animation-left"
-            animate.leave="exit-animation-left"
+            animate.leave="leaving"
             src="{{ imgSrc }}"
             (click)="openPreviewedImage()"
             (load)="updateOverlay()"
@@ -33,12 +36,12 @@
             (mouseleave)="isHovered = false"
           />
         }
-      </div>
-    }
+      }
+    </div>
   </div>
   <span
-    class="pointer-events-none absolute inset-0 flex items-center justify-center transition-opacity duration-500"
-    [ngStyle]="this.overlayStyle"
+    class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center transition-opacity duration-500"
+    [ngStyle]="this.spanOverlayStyle"
     [ngClass]="isHovered ? 'opacity-100' : 'opacity-0'"
   >
     <img

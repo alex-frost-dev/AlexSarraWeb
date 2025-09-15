@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, signal, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageModalWindowComponent } from '../../image-modal-window/image-modal-window.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,7 +11,8 @@ import { MatDialog } from '@angular/material/dialog';
   standalone: true,
 })
 export class ImagePreviewComponent {
-  private _currentPreviewImage!: string;
+  public previousPreviewImage!: string | null;
+  private _currentPreviewImage!: string | null;
 
   @Input() images!: string[];
   @Input() isInverted!: boolean;
@@ -19,12 +20,12 @@ export class ImagePreviewComponent {
   set currentPreviewImage(value: string) {
     this._currentPreviewImage = value;
   }
-  get currentPreviewImage(): string {
+  get currentPreviewImage(): string | null {
     return this._currentPreviewImage;
   }
 
   @ViewChild('img', { static: false }) img!: ElementRef<HTMLImageElement>;
-  overlayStyle: any = {};
+  spanOverlayStyle: any = {};
   resizeListener: any;
 
   isHovered = false;
@@ -61,8 +62,9 @@ export class ImagePreviewComponent {
 
   updateOverlay() {
     if (this.img?.nativeElement) {
+      console.log(this.img?.nativeElement);
       const rect = this.img.nativeElement.getBoundingClientRect();
-      this.overlayStyle = {
+      this.spanOverlayStyle = {
         position: 'absolute',
         left: this.img.nativeElement.offsetLeft + 'px',
         top: this.img.nativeElement.offsetTop + 'px',
@@ -70,6 +72,7 @@ export class ImagePreviewComponent {
         height: rect.height + 'px',
         pointerEvents: 'none',
       };
+      console.log(this.spanOverlayStyle);
     }
   }
 }
