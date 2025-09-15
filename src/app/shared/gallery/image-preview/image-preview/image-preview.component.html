@@ -5,7 +5,9 @@
     class="flex h-96 max-h-full w-full max-w-full flex-col items-center justify-center"
   >
     @for (imgSrc of [this.currentPreviewImage]; track imgSrc) {
-      <div class="inline-flex items-center justify-center">
+      <div
+        class="inline-flex max-h-full max-w-full items-center justify-center"
+      >
         @if (!this.isInverted) {
           <img
             #img
