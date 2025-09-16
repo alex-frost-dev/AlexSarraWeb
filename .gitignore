@@ -29,7 +29,7 @@
 /frontend/.history/*
 
 # Miscellaneous
-/frontend/.angular/cache
+/frontend/.angular/cache/**
 /frontend/.sass-cache/
 /frontend/connect.lock
 /frontend/coverage
