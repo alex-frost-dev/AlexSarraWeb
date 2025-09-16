@@ -1,0 +1,133 @@
+<div
+  class="w-4/7 grid max-h-[45vh] max-w-[90vw] grid-rows-[0.1fr_0.1fr_0.1fr] gap-2 text-black dark:text-white md:grid-rows-[0.2fr_0.5fr_0.3fr] md:gap-6"
+  [ngClass]="
+    this.emptyImage
+      ? 'grid-cols-1'
+      : this.isInverted
+        ? 'grid-cols-[1fr_2fr] md:grid-cols-[1fr_2fr]'
+        : 'grid-cols-[2fr_1fr] md:grid-cols-[2fr_1fr]'
+  "
+>
+  <!-- PROJECT TITLE -->
+  <div
+    class="row-start-1 inline-flex h-auto items-center gap-2 text-[length:--min-font-size-title] sm:text-[length:--sm-font-size-title] md:gap-4 md:text-[length:--md-font-size-title] lg:text-[length:--lg-font-size-title] xl:text-[length:--xl-font-size-title]"
+    [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
+  >
+    <a
+      [innerHTML]="this.projectPrefix + '.name' | translate"
+      href="/projects/{{ this.projectName }}"
+    ></a>
+    @if (this.jsonProject && doJsonKeyExists("github")) {
+      <a
+        class="h-auto w-8 align-baseline"
+        href="{{ this.projectPrefix + '.github' | translate }}"
+      >
+        <!-- Black GitHub link for light mode -->
+        <img
+          src="/assets/images/icons/github_black.png"
+          alt="GitHub logo link"
+          class="block align-baseline dark:hidden"
+        />
+        <!-- White GitHub link for dark mode -->
+        <img
+          src="/assets/images/icons/github_white.png"
+          alt="GitHub logo link"
+          class="hidden w-4 align-baseline dark:block sm:w-5 md:w-6 lg:w-8"
+        />
+      </a>
+    }
+  </div>
+
+  <!-- PROJECT DESCRIPTION -->
+  <div
+    [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
+    class="col-start-1 row-start-2 grid h-auto grid-cols-[4fr_1fr] items-center gap-4 text-[length:--min-font-size-normal-text] sm:text-[length:--sm-font-size-normal-text] md:text-[length:--md-font-size-normal-text] lg:text-[length:--lg-font-size-normal-text] xl:text-[length:--xl-font-size-normal-text]"
+  >
+    <div class="col-start-1">
+      <p [innerHTML]="this.projectPrefix + '.description' | translate"></p>
+    </div>
+    <!-- PROJECT META INFO -->
+    <div class="col-start-2 flex h-auto w-full items-center align-middle">
+      <div class="grid w-full auto-rows-auto grid-rows-2">
+        <!-- Frameworks -->
+        <div
+          class="row-start-1 flex flex-col items-center justify-center border-b-2 border-l-2 border-black pr-4 dark:border-white"
+        >
+          <p
+            class="justify-center"
+            [innerHTML]="this.projectPrefix + '.frameworks.title' | translate"
+          ></p>
+          @if (this.jsonProject && doJsonKeyExists("frameworks.secondary")) {
+            <p
+              class="justify-center"
+              [innerHTML]="
+                this.projectPrefix + '.frameworks.secondary' | translate
+              "
+            ></p>
+          }
+        </div>
+        <div class="row-start-2 flex w-full">
+          <!-- Year -->
+          <div
+            class="flex flex-col justify-start border-l-2 border-r-2 border-black px-0.5 py-4 text-center dark:border-white md:px-2"
+          >
+            <u class="self-center font-bold">{{
+              this.defaultsPrefix + ".year_label" | translate
+            }}</u>
+            <p
+              class="self-center"
+              [innerHTML]="this.projectPrefix + '.year' | translate"
+            ></p>
+          </div>
+          <!-- Duration -->
+          <div
+            class="flex flex-col justify-start border-r-2 border-black px-0.5 py-4 text-center dark:border-white md:px-2"
+          >
+            <u class="self-center font-bold">{{
+              this.defaultsPrefix + ".duration_label" | translate
+            }}</u>
+            <p class="self-center">
+              {{ this.projectPrefix + ".duration" | translate }}
+            </p>
+          </div>
+          <!-- Tools -->
+          <div
+            class="flex flex-col items-center justify-start px-0.5 py-4 text-center md:px-2"
+          >
+            <u class="self-center font-bold">{{
+              this.defaultsPrefix + ".tools_label" | translate
+            }}</u>
+            <p
+              class="self-center"
+              [innerHTML]="this.projectPrefix + '.tools' | translate"
+            ></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @if (!this.emptyImage) {
+    <!-- PROJECT GALLERY -->
+    <app-image-gallery
+      [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
+      class="row-start-3 flex h-auto align-middle"
+      [maxNumItems]="this.jsonProject?.imagesPerRow"
+      [images]="this.projectPrefix + '.images' | translate"
+      (imageClicked)="handleClickedImage($event)"
+    ></app-image-gallery>
+
+    <!-- PROJECT PREVIEW IMAGE -->
+    <div
+      class="row-span-full row-start-1 flex h-full w-full items-center justify-center"
+    >
+      <app-image-preview
+        [ngClass]="this.isInverted ? 'col-start-1' : 'col-start-2'"
+        [images]="this.images"
+        [isInverted]="this.isInverted"
+        [currentPreviewImage]="this.currentPreviewImage"
+        class="h-full max-h-full w-full object-contain"
+      ></app-image-preview>
+    </div>
+  }
+</div>

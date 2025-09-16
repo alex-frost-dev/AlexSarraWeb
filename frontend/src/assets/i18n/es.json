@@ -1,0 +1,87 @@
+{
+  "projects": {
+    "defaults": {
+      "year_label": "Año",
+      "duration_label": "Duración",
+      "tools_label": "Herramientas"
+    },
+    "gestor_facturas": {
+      "name": "Gestión de facturas de traducción",
+      "description": "Programa con <b>GUI</b> que genera facturas enfocadas al sector de la traducción. Utiliza una base de datos <b>JSON</b> y la biblioteca <b>Java Swing</b>. Recupera la información fiscal de los clientes guardados y la combina con los datos introducidos del servicio. También permite crear y modificar clientes de una forma muy sencilla y buscar facturas por número, importe o cliente. Un último módulo dedicado a varias configuraciones que ceden al usuario el control sobre aspectos visuales de la IU y las las factura generadas. Sigo recibiendo feedback del usuario y actualizando según sus necesidades.",
+      "frameworks": {
+        "title": "Java Swing, JSON",
+        "secondary": "<i><small>migrado desde Hibernate/PostgreSQL</small></i>"
+      },
+      "year": "2025",
+      "duration": "1 mes",
+      "tools": "NetBeans",
+      "github": "https://github.com/A50tt/GestorFacturasTraduccion",
+      "images": [
+        "../../../assets/images/projects/gestor_facturas/factura.png",
+        "../../../assets/images/projects/gestor_facturas/crear_factura.png",
+        "../../../assets/images/projects/gestor_facturas/buscar_factura.png",
+        "../../../assets/images/projects/gestor_facturas/editar_cliente.png",
+        "../../../assets/images/projects/gestor_facturas/importar.png",
+        "../../../assets/images/projects/gestor_facturas/configuracion.png"
+      ]
+    },
+    "test_capitales": {
+      "name": "Test de las capitales",
+      "description": "Aplicación con <b>GUI</b> que construí mediante <b>Windows Forms</b> para practicar las capitales de los países de una manera interactiva. Hay que responder dentro de un tiempo límite, posee un lector de archivos locales que lee y guarda el ránking de las mejores puntuaciones. También estuve experimentando con la clase <b>Media Player</b> y contiene música regulable.<br><br>Fue uno de mis primeros proyectos antes de comenzar a estudiar desarrollo de software. Con él vi que la programación podía usarse para infinidad de objetivos y sentí el primer logro de haber terminado una aplicación que para mí era compleja.",
+      "frameworks": {
+        "title": "C#, Windows Forms"
+      },
+      "year": "2020",
+      "duration": "1 mes",
+      "tools": "Visual Studio",
+      "github": "https://github.com/A50tt/TestCapitales",
+      "images": [
+        "../../../assets/images/projects/test_capitales/pantalla_inicio.png",
+        "../../../assets/images/projects/test_capitales/prueba_correcto.png",
+        "../../../assets/images/projects/test_capitales/reglas.png"
+      ]
+    },
+    "automatizacion_procesos_departamentales": {
+      "name": "Automatización de procesos departamentales",
+      "description": "Mediante <b>VBA</b> en Excel, mientras trabajaba en Catalonia Hotels & Resorts como contable, construí un programa para agilizar tareas en mi departamento. El código creaba informes ejecutando instrucciones de copia, comprobación y sincronización de archivos en <b>Sharepoint</b> y en local. Pude vivir la experiencia de <b>mantener</b> una aplicación y <b>adaptarla</b> a los cambios de la organización, además de <b>diseñarla</b> para que el usuario tuviera el control de manera simple desde un menú. Optimizó varias tareas del departamento y la duración de algunas se redujo de 2 horas a poco menos de 10 minutos.",
+      "frameworks": {
+        "title": "VBA, Excel"
+      },
+      "year": "2020 2024",
+      "duration": "4 años",
+      "tools": "MS Excel, Sharepoint",
+      "images": []
+    },
+    "juego_sinonimos": {
+      "name": "Juego de los sinónimos",
+      "description": "Otra aplicación con <b>GUI</b> que creé durante la pandemia para practicar sinónimos, ya que en ese momento no se podía hablar con muchas personas. Mediante <b>web scraping</b> de páginas como la RAE, muestra palabras aleatorias junto con sus definiciones y el usuario ha de responder con cualquier posible sinónimo.",
+      "frameworks": {
+        "title": "C#, Windows Forms"
+      },
+      "year": "2020",
+      "duration": "1 mes",
+      "tools": "Visual Studio",
+      "images": [
+        "../../../assets/images/projects/juego_sinonimos/es/principal.png",
+        "../../../assets/images/projects/juego_sinonimos/es/correcto.png"
+      ]
+    },
+    "ludoteca": {
+      "name": "Ludoteca Tan",
+      "description": "Mi primera aplicación full stack es una librería de préstamos de juegos de mesa desarrollada con <b>Angular</b>, <b>Spring Boot</b>, <b>H2 Database</b> y testing con <b>Mockito</b>. A través de una <b>API RESTful</b>, el usuario puede crear nuevos juegos de mesa y asignarles categorías y autores. Además, es posible crear clientes y registrar préstamos a su nombre, indicando fechas de inicio y vencimiento.<br><br>Este proyecto lo realicé gracias a mis prácticas en <b>Capgemini</b>, donde aprendí mucho sobre Angular y Spring Boot. Probablemente fue el mejor curso que he realizado hasta ahora. Gracias a esta experiencia confirmé mi interés en el backend y pude adentrarme en el desarrollo full stack por primera vez.",
+      "frameworks": {
+        "title": "Angular, Spring Boot"
+      },
+      "year": "2025",
+      "duration": "1 mes",
+      "tools": "Visual Studio Code, IntelliJ IDEA",
+      "images": [
+        "../../../assets/images/projects/ludoteca/es/juegos.png",
+        "../../../assets/images/projects/ludoteca/es/juegos_crear_rellenado.png",
+        "../../../assets/images/projects/ludoteca/es/juegos_filtro.png",
+        "../../../assets/images/projects/ludoteca/es/prestamos.png",
+        "../../../assets/images/projects/ludoteca/es/prestamos_filtro.png"
+      ]
+    }
+  }
+}
