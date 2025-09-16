@@ -1,0 +1,15 @@
+{
+  "HOME": {
+    "WELCOME": "Welcome",
+    "DESCRIPTION": "This is the home page"
+  },
+  "LOGIN": {
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "BUTTON": "Login"
+  },
+  "ERRORS": {
+    "REQUIRED": "This field is required",
+    "INVALID": "Invalid value"
+  }
+}
