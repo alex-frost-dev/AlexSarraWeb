@@ -67,7 +67,7 @@
       ]
     },
     "ludoteca": {
-      "name": "Ludoteca Tan",
+      "name": "Ludoteca",
       "description": "Mi primera aplicación full stack es una librería de préstamos de juegos de mesa desarrollada con <b>Angular</b>, <b>Spring Boot</b>, <b>H2 Database</b> y testing con <b>Mockito</b>. A través de una <b>API RESTful</b>, el usuario puede crear nuevos juegos de mesa y asignarles categorías y autores. Además, es posible crear clientes y registrar préstamos a su nombre, indicando fechas de inicio y vencimiento.<br><br>Este proyecto lo realicé gracias a mis prácticas en <b>Capgemini</b>, donde aprendí mucho sobre Angular y Spring Boot. Probablemente fue el mejor curso que he realizado hasta ahora. Gracias a esta experiencia confirmé mi interés en el backend y pude adentrarme en el desarrollo full stack por primera vez.",
       "frameworks": {
         "title": "Angular, Spring Boot"

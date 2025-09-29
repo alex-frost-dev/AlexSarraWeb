@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { waitForAsync } from '@angular/core/testing';
 import { ImagePreviewComponent } from '../gallery/image-preview/image-preview/image-preview.component';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'project-card',
@@ -34,6 +35,9 @@ export class ProjectCardComponent {
   emptyImage: boolean = false;
   currentPreviewImage!: string;
 
+  screenSize: string = 'lg';
+  private resizeListener = () => this.detectScreenSize(); // Listener
+
   constructor(
     @Inject(LanguageService) private lang: any,
     private http: HttpClient,
@@ -55,6 +59,13 @@ export class ProjectCardComponent {
         }
       });
     waitForAsync;
+
+    this.detectScreenSize();
+    window.addEventListener('resize', this.resizeListener);
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('resize', this.resizeListener);
   }
 
   doJsonKeyExists(key: string) {
@@ -72,5 +83,19 @@ export class ProjectCardComponent {
 
   handleClickedImage(newImage: any) {
     this.currentPreviewImage = newImage;
+  }
+
+  private detectScreenSize() {
+    if (window.matchMedia('(min-width: 1280px)').matches) {
+      this.screenSize = 'xl';
+    } else if (window.matchMedia('(min-width: 1024px)').matches) {
+      this.screenSize = 'lg';
+    } else if (window.matchMedia('(min-width: 768px)').matches) {
+      this.screenSize = 'md';
+    } else if (window.matchMedia('(min-width: 640px)').matches) {
+      this.screenSize = 'sm';
+    } else {
+      this.screenSize = 'sm'; // Below Tailwind's sm, still treat as sm
+    }
   }
 }

@@ -1,11 +1,11 @@
 <div
-  class="w-4/7 grid max-h-[45vh] max-w-[90vw] grid-rows-[0.1fr_0.1fr_0.1fr] gap-2 text-black dark:text-white md:grid-rows-[0.2fr_0.5fr_0.3fr] md:gap-6"
+  class="w-4/7 grid max-h-[45vh] max-w-[90vw] grid-rows-[0.1fr_0.1fr_0.1fr_0.1fr] gap-2 text-black dark:text-white md:grid-rows-[0.2fr_0.5fr_0.3fr] md:gap-6"
   [ngClass]="
     this.emptyImage
       ? 'grid-cols-1'
       : this.isInverted
-        ? 'grid-cols-[1fr_2fr] md:grid-cols-[1fr_2fr]'
-        : 'grid-cols-[2fr_1fr] md:grid-cols-[2fr_1fr]'
+        ? 'grid-cols-[1fr] md:grid-cols-[1fr_2fr]'
+        : 'grid-cols-[1fr] md:grid-cols-[2fr_1fr]'
   "
 >
   <!-- PROJECT TITLE -->
@@ -41,7 +41,7 @@
   <!-- PROJECT DESCRIPTION -->
   <div
     [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
-    class="col-start-1 row-start-2 grid h-auto grid-cols-[4fr_1fr] items-center gap-4 text-[length:--min-font-size-normal-text] sm:text-[length:--sm-font-size-normal-text] md:text-[length:--md-font-size-normal-text] lg:text-[length:--lg-font-size-normal-text] xl:text-[length:--xl-font-size-normal-text]"
+    class="col-start-1 row-start-2 grid h-auto min-w-[350px] grid-cols-[4fr_1fr] items-center gap-4 text-[length:--min-font-size-normal-text] sm:text-[length:--sm-font-size-normal-text] md:text-[length:--md-font-size-normal-text] lg:text-[length:--lg-font-size-normal-text] xl:text-[length:--xl-font-size-normal-text]"
   >
     <div class="col-start-1">
       <p [innerHTML]="this.projectPrefix + '.description' | translate"></p>
@@ -109,17 +109,29 @@
 
   @if (!this.emptyImage) {
     <!-- PROJECT GALLERY -->
-    <app-image-gallery
-      [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
-      class="row-start-3 flex h-auto align-middle"
-      [maxNumItems]="this.jsonProject?.imagesPerRow"
-      [images]="this.projectPrefix + '.images' | translate"
-      (imageClicked)="handleClickedImage($event)"
-    ></app-image-gallery>
+    @if (this.screenSize == "sm") {
+      <app-image-gallery
+        [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
+        class="row-start-3 flex h-auto align-middle"
+        [maxNumItems]="this.jsonProject?.imagesPerRow"
+        [images]="this.projectPrefix + '.images' | translate"
+        (imageClicked)="(null)"
+        [screenSize]="this.screenSize"
+      ></app-image-gallery>
+    } @else {
+      <app-image-gallery
+        [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
+        class="row-start-3 flex h-auto align-middle"
+        [maxNumItems]="this.jsonProject?.imagesPerRow"
+        [images]="this.projectPrefix + '.images' | translate"
+        (imageClicked)="handleClickedImage($event)"
+        [screenSize]="this.screenSize"
+      ></app-image-gallery>
+    }
 
     <!-- PROJECT PREVIEW IMAGE -->
     <div
-      class="row-span-full row-start-1 flex h-full w-full items-center justify-center"
+      class="row-span-full row-start-3 flex h-full w-full items-center justify-center md:row-start-1"
     >
       <app-image-preview
         [ngClass]="this.isInverted ? 'col-start-1' : 'col-start-2'"

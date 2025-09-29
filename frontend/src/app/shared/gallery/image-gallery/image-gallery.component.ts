@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ImageModalWindowComponent } from '../image-modal-window/image-modal-window.component';
 
 @Component({
   selector: 'app-image-gallery',
@@ -13,8 +14,8 @@ export class GalleryComponent {
   endIndex = 0;
   @Input() images!: string[];
   @Input() maxNumItems!: number;
+  @Input() screenSize!: string;
   arrowsNeeded: boolean = false;
-
   @Output() imageClicked = new EventEmitter<string>();
 
   constructor(private dialog: MatDialog) {}
@@ -45,7 +46,18 @@ export class GalleryComponent {
   }
 
   sendImage(val: string) {
-    this.imageClicked.emit(val);
+    // If there is no preview images (SMALL SCREEN), the image gallery images open the preview modal window directly
+    if (this.screenSize == 'sm') {
+      this.dialog.open(ImageModalWindowComponent, {
+        data: {
+          src: val,
+          images: this.images,
+        },
+      });
+    } else {
+      // If there is a preview image (MEDIUM or more), they only emit and change the previewed image
+      this.imageClicked.emit(val);
+    }
   }
 
   getImageName(path: string) {
