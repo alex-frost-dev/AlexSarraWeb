@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { waitForAsync } from '@angular/core/testing';
 import { ImagePreviewComponent } from '../gallery/image-preview/image-preview/image-preview.component';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'project-card',
