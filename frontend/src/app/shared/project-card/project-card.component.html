@@ -40,8 +40,8 @@
 
   <!-- PROJECT DESCRIPTION -->
   <div
-    [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
-    class="col-start-1 row-start-2 grid h-auto min-w-[350px] grid-cols-[4fr_1fr] items-center gap-4 text-[length:--min-font-size-normal-text] sm:text-[length:--sm-font-size-normal-text] md:text-[length:--md-font-size-normal-text] lg:text-[length:--lg-font-size-normal-text] xl:text-[length:--xl-font-size-normal-text]"
+    [ngClass]="!this.isInverted ? 'col-start-1' : 'col-start-2'"
+    class="col-start-1 row-start-2 grid h-auto min-w-[350px] grid-cols-[10fr_1fr] items-center gap-4 text-[length:--min-font-size-normal-text] sm:text-[length:--sm-font-size-normal-text] md:text-[length:--md-font-size-normal-text] lg:text-[length:--lg-font-size-normal-text] xl:text-[length:--xl-font-size-normal-text]"
   >
     <div class="col-start-1">
       <p [innerHTML]="this.projectPrefix + '.description' | translate"></p>
