@@ -3,17 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --min-font-size-title: 0.4rem;
   --sm-font-size-title: 0.6rem;
   --md-font-size-title: 0.85rem;
-  --lg-font-size-title: 1.1rem;
-  --xl-font-size-title: 1.35rem;
-
-  --min-font-size-normal-text: 0.4rem;
-  --sm-font-size-normal-text: 0.7rem;
-  --md-font-size-normal-text: 0.9rem;
-  --lg-font-size-normal-text: 1.1rem;
-  --xl-font-size-normal-text: 1.25rem;
 }
 
 html,
