@@ -15,7 +15,7 @@
       "year": "2025",
       "duration": "1 mes",
       "tools": "NetBeans",
-      "github": "https://github.com/A50tt/GestorFacturasTraduccion",
+      "github": "https://github.com/alex-frost-dev/GestorFacturasTraduccion",
       "images": [
         "../../../assets/images/projects/gestor_facturas/factura.png",
         "../../../assets/images/projects/gestor_facturas/crear_factura.png",
@@ -34,7 +34,7 @@
       "year": "2020",
       "duration": "1 mes",
       "tools": "Visual Studio",
-      "github": "https://github.com/A50tt/TestCapitales",
+      "github": "https://github.com/alex-frost-dev/TestCapitales",
       "images": [
         "../../../assets/images/projects/test_capitales/pantalla_inicio.png",
         "../../../assets/images/projects/test_capitales/prueba_correcto.png",
@@ -75,6 +75,7 @@
       "year": "2025",
       "duration": "1 mes",
       "tools": "Visual Studio Code, IntelliJ IDEA",
+      "github": "https://github.com/alex-frost-dev/Ludoteca",
       "images": [
         "../../../assets/images/projects/ludoteca/es/juegos.png",
         "../../../assets/images/projects/ludoteca/es/juegos_crear_rellenado.png",
