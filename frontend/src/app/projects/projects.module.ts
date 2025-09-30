@@ -6,6 +6,7 @@ import { TranslatePipe, TranslateDirective } from '@ngx-translate/core';
 import { GalleryComponent } from '../shared/gallery/image-gallery/image-gallery.component';
 import { ImageModalWindowComponent } from '../shared/gallery/image-modal-window/image-modal-window.component';
 import { ProjectCardComponent } from '../shared/project-card/project-card.component';
+import { NavbarComponent } from '../shared/navbar/navbar/navbar.component';
 
 @NgModule({
   declarations: [ProjectsListPageComponent],
@@ -17,6 +18,7 @@ import { ProjectCardComponent } from '../shared/project-card/project-card.compon
     GalleryComponent,
     ImageModalWindowComponent,
     ProjectCardComponent,
+    NavbarComponent,
   ],
 })
 export class ProjectsModule {}

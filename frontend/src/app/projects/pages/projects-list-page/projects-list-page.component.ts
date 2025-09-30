@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DarkModeService } from '../../../shared/services/dark-mode/dark-mode.service';
 
 @Component({
   selector: 'app-projects-list-page',
@@ -7,6 +6,4 @@ import { DarkModeService } from '../../../shared/services/dark-mode/dark-mode.se
   styleUrl: './projects-list-page.component.css',
   standalone: false,
 })
-export class ProjectsListPageComponent {
-  constructor(public darkModeService: DarkModeService) {}
-}
+export class ProjectsListPageComponent {}

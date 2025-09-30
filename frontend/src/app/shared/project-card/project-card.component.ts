@@ -94,7 +94,7 @@ export class ProjectCardComponent {
     } else if (window.matchMedia('(min-width: 640px)').matches) {
       this.screenSize = 'sm';
     } else {
-      this.screenSize = 'sm'; // Below Tailwind's sm, still treat as sm
+      this.screenSize = 'sm';
     }
   }
 }

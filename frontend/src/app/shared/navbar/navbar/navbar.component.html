@@ -1,0 +1,30 @@
+<div class="m-3 flex h-12 justify-end rounded bg-blue-500">
+  <div class="mx-4 flex">
+    <a class="cursor-pointer self-center text-black dark:text-white" href="/"
+      >About me</a
+    >
+  </div>
+  <div class="mx-4 flex">
+    <a
+      class="cursor-pointer self-center text-black dark:text-white"
+      href="/projects"
+      >Projects</a
+    >
+  </div>
+  <div class="mx-4 h-12 w-12 items-center justify-center">
+    <div class="relative h-12 w-12 align-middle">
+      <img
+        class="absolute inset-0 left-0 top-0 m-auto h-auto max-h-[36px] w-auto max-w-[36px] flex-none cursor-pointer"
+        [ngClass]="darkModeService.isDarkMode() ? 'appearing' : 'leaving'"
+        src="../../../../assets/images/icons/darkmode_sun_white_big_test.png"
+        (click)="darkModeService.toggleDarkMode()"
+      />
+      <img
+        class="absolute inset-0 m-auto h-auto max-h-[36px] w-auto max-w-[36px] flex-none cursor-pointer"
+        [ngClass]="darkModeService.isDarkMode() ? 'leaving' : 'appearing'"
+        src="../../../../assets/images/icons/darkmode_moon_black_big.png"
+        (click)="darkModeService.toggleDarkMode()"
+      />
+    </div>
+  </div>
+</div>
