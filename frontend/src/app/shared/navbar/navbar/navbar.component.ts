@@ -1,16 +1,11 @@
 import { Component } from '@angular/core';
-import { DarkModeService } from '../../services/dark-mode/dark-mode.service';
-import { CommonModule } from '@angular/common';
+import { DarkModeToggleComponent } from '../../dark-mode-toggle/dark-mode-toggle.component';
 
 @Component({
   selector: 'app-navbar',
-  imports: [CommonModule],
+  imports: [DarkModeToggleComponent],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
   standalone: true,
 })
-export class NavbarComponent {
-  constructor(public darkModeService: DarkModeService) {}
-
-  toggleDarkMode() {}
-}
+export class NavbarComponent {}
