@@ -1,9 +1,3 @@
-.leaving {
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-.appearing {
-  opacity: 1;
-  transition: opacity 0.2s;
+.toggle-switch {
+  transition: transform 0.3s;
 }
