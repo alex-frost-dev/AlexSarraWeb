@@ -31,10 +31,6 @@ export class DarkModeService {
   }
 
   isDarkMode(): boolean {
-    console.log(
-      'returned',
-      document.documentElement.classList.contains('dark'),
-    );
     return document.documentElement.classList.contains('dark');
   }
 }

@@ -7,10 +7,14 @@ import { GalleryComponent } from '../shared/gallery/image-gallery/image-gallery.
 import { ImageModalWindowComponent } from '../shared/gallery/image-modal-window/image-modal-window.component';
 import { ProjectCardComponent } from '../shared/project-card/project-card.component';
 import { NavbarComponent } from '../shared/navbar/navbar/navbar.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [{ path: '', component: ProjectsListPageComponent }];
 
 @NgModule({
   declarations: [ProjectsListPageComponent],
   imports: [
+    RouterModule.forChild(routes),
     CommonModule,
     ProjectsRoutingModule,
     TranslatePipe,

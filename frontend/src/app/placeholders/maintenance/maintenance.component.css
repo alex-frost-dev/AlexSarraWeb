@@ -1,0 +1,8 @@
+.maintenance-image-container {
+  background-image: url(/assets/images/background/noche_estrellada_van_gogh.jpg);
+  background-position: center;
+}
+
+.text-outline {
+  -webkit-text-stroke: 2px white;
+}
