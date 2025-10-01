@@ -18,13 +18,23 @@ export class NavbarComponent {
     this.resize$ = windowResizeService.resize$;
   }
 
-  getScreenSizeString(size: any): number {
+  getToggleWidth(size: any): number {
     console.log('Component received:', size);
     switch (size) {
       case 'sm':
-        return 50;
+        return 35;
       default:
-        return 500;
+        return 80;
+    }
+  }
+
+  getToggleHeight(size: any): number {
+    console.log('Component received:', size);
+    switch (size) {
+      case 'sm':
+        return 15;
+      default:
+        return 30;
     }
   }
 }

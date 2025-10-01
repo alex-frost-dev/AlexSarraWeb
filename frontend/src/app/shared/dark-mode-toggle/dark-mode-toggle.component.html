@@ -1,22 +1,30 @@
 <div
   class="mx-4 items-center justify-center overflow-hidden rounded-full border-2 border-black"
 >
-  <div class="parent-toggle-container w-auto">
+  <div class="parent-toggle-container w-auto" [style.height.px]="height">
     <div
-      class="toggle-container relative grid h-[28px] w-auto cursor-pointer grid-cols-2 place-content-center gap-16 bg-gradient-to-r from-slate-200 to-slate-900 align-middle"
-      (click)="darkModeService.toggleDarkMode(); this.adjustToggle()"
+      class="toggle-container relative grid cursor-pointer grid-cols-2 place-content-center bg-gradient-to-r from-slate-200 to-slate-900 align-middle"
+      [style.height.px]="height"
+      [style.gap.px]="prefGap"
+      (click)="darkModeService.toggleDarkMode(); adjustToggle()"
     >
       <img
         class="toggle-switch z-1 absolute w-auto flex-none select-none"
-        (load)="this.adjustToggle()"
+        [style.height.px]="height"
+        [style.transform]="toggleTranslation"
+        (load)="adjustToggle()"
         src="../../../../assets/images/icons/circle.png"
       />
       <img
-        class="left-image h-[28px] w-[28px] flex-none select-none"
+        class="left-image flex-none select-none"
+        [style.height.px]="height"
+        [style.width.px]="height"
         src="../../../../assets/images/icons/moon_black.png"
       />
       <img
-        class="right-image h-[28px] w-[28px] flex-none select-none"
+        class="right-image flex-none select-none"
+        [style.height.px]="height"
+        [style.width.px]="height"
         src="../../../../assets/images/icons/sun_white.png"
       />
     </div>
