@@ -43,14 +43,16 @@
     },
     "automatizacion_procesos_departamentales": {
       "name": "Automatización de procesos departamentales",
-      "description": "Mediante <b>VBA</b> en Excel, mientras trabajaba en Catalonia Hotels & Resorts como contable, construí un programa para agilizar tareas en mi departamento. El código creaba informes ejecutando instrucciones de copia, comprobación y sincronización de archivos en <b>Sharepoint</b> y en local. Pude vivir la experiencia de <b>mantener</b> una aplicación y <b>adaptarla</b> a los cambios de la organización, además de <b>diseñarla</b> para que el usuario tuviera el control de manera simple desde un menú. Optimizó varias tareas del departamento y la duración de algunas se redujo de 2 horas a poco menos de 10 minutos.",
+      "description": "Mediante <b>VBA</b> en Excel, mientras trabajaba en Catalonia Hotels & Resorts como contable, construí un programa para agilizar tareas en mi departamento. El código creaba informes ejecutando instrucciones de copia, comprobación y sincronización de archivos en <b>Sharepoint</b> y en local. Pude vivir la experiencia de <b>mantener</b> una aplicación y <b>adaptarla</b> a los cambios de la organización, además de <b>diseñarla</b> para que el usuario tuviera el control de manera simple desde un simple menú. Optimizó varias tareas del departamento y la duración de algunas se redujo de 2 horas a poco menos de 10 minutos.<br><br>Lamentablemente, para evitar mostrar cualquier tipo de información interna, solo puedo mostrar una parte de mi código.",
       "frameworks": {
         "title": "VBA, Excel"
       },
       "year": "2020 2024",
       "duration": "4 años",
       "tools": "MS Excel, Sharepoint",
-      "images": []
+      "images": [
+        "../../../assets/images/projects/automatizacion_procesos_departamentales/muestra_codigo.png"
+      ]
     },
     "juego_sinonimos": {
       "name": "Juego de los sinónimos",

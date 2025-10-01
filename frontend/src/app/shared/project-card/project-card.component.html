@@ -2,10 +2,10 @@
   class="w-4/7 grid max-h-[45vh] max-w-[90vw] grid-rows-[0.1fr_0.1fr_0.1fr_0.1fr] gap-2 text-black dark:text-white md:grid-rows-[0.2fr_0.5fr_0.3fr] md:gap-6"
   [ngClass]="
     this.emptyImage
-      ? 'grid-cols-1'
-      : this.isInverted
-        ? 'grid-cols-[1fr] md:grid-cols-[1fr_2fr]'
-        : 'grid-cols-[1fr] md:grid-cols-[2fr_1fr]'
+      ? 'grid-cols-[1fr] md:grid-cols-[2fr_1fr]'
+      : !this.isInverted
+        ? 'grid-cols-[1fr] md:grid-cols-[1.5fr_1fr]'
+        : 'grid-cols-[1fr] md:grid-cols-[1fr_1.5fr]'
   "
 >
   <!-- PROJECT TITLE -->
@@ -108,7 +108,8 @@
     </div>
   </div>
 
-  @if (!this.emptyImage) {
+  <!-- @if (!this.emptyImage) { -->
+  @if (this.images.length > 1) {
     <!-- PROJECT GALLERY -->
     @if (this.screenSize == "sm") {
       <app-image-gallery
@@ -129,18 +130,18 @@
         [screenSize]="this.screenSize"
       ></app-image-gallery>
     }
-
-    <!-- PROJECT PREVIEW IMAGE -->
-    <div
-      class="row-span-full row-start-3 flex h-full w-full items-center justify-center md:row-start-1"
-    >
-      <app-image-preview
-        [ngClass]="this.isInverted ? 'col-start-1' : 'col-start-2'"
-        [images]="this.images"
-        [isInverted]="this.isInverted"
-        [currentPreviewImage]="this.currentPreviewImage"
-        class="h-full max-h-full w-full object-contain"
-      ></app-image-preview>
-    </div>
   }
+
+  <!-- PROJECT PREVIEW IMAGE -->
+  <div
+    class="row-span-full row-start-3 flex h-full w-full items-center justify-center md:row-start-1"
+  >
+    <app-image-preview
+      [ngClass]="this.isInverted ? 'col-start-1' : 'col-start-2'"
+      [images]="this.images"
+      [isInverted]="this.isInverted"
+      [currentPreviewImage]="this.currentPreviewImage"
+      class="h-full max-h-full w-full object-contain"
+    ></app-image-preview>
+  </div>
 </div>
