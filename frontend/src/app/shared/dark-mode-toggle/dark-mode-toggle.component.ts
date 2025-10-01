@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { DarkModeService } from '../services/dark-mode/dark-mode.service';
 import { CommonModule } from '@angular/common';
 
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './dark-mode-toggle.component.css',
   standalone: true,
 })
-export class DarkModeToggleComponent {
+export class DarkModeToggleComponent implements OnChanges {
   @Input() width!: number;
   @Input() height!: number;
   prefGap!: number;
@@ -21,6 +21,12 @@ export class DarkModeToggleComponent {
   rightElem!: HTMLImageElement;
 
   constructor(public darkModeService: DarkModeService) {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['width'] || changes['height']) {
+      this.prefGap = this.width - this.height * 2;
+    }
+  }
 
   ngOnInit() {
     // Elements selection
