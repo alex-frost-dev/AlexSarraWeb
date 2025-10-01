@@ -19,7 +19,6 @@ export class NavbarComponent {
   }
 
   getToggleWidth(size: any): number {
-    console.log('Component received:', size);
     switch (size) {
       case 'sm':
         return 35;
@@ -29,7 +28,6 @@ export class NavbarComponent {
   }
 
   getToggleHeight(size: any): number {
-    console.log('Component received:', size);
     switch (size) {
       case 'sm':
         return 15;

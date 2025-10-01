@@ -33,7 +33,8 @@ export class ProjectCardComponent {
   defaultsPrefix: string = this.projectPrefix + '.defaults';
 
   images!: string[];
-  emptyImage: boolean = false;
+  // emptyImage: boolean = false;
+  uniqueImage: boolean = false;
   currentPreviewImage!: string;
 
   screenSize: string = 'lg';
@@ -56,8 +57,9 @@ export class ProjectCardComponent {
         this.images = this.jsonProject['images'];
         if (this.images.length > 0) {
           this.currentPreviewImage = this.images[0];
-        } else {
-          this.emptyImage = true;
+        }
+        if (this.images.length == 1) {
+          this.uniqueImage = true;
         }
       });
     waitForAsync;

@@ -1,11 +1,9 @@
 <div
   class="w-4/7 grid max-h-[45vh] max-w-[90vw] grid-rows-[0.1fr_0.1fr_0.1fr_0.1fr] gap-2 text-black dark:text-white md:grid-rows-[0.2fr_0.5fr_0.3fr] md:gap-6"
   [ngClass]="
-    this.emptyImage
-      ? 'grid-cols-[1fr] md:grid-cols-[2fr_1fr]'
-      : !this.isInverted
-        ? 'grid-cols-[1fr] md:grid-cols-[1.5fr_1fr]'
-        : 'grid-cols-[1fr] md:grid-cols-[1fr_1.5fr]'
+    !this.isInverted
+      ? 'grid-cols-[1fr] md:grid-cols-[1.5fr_1fr]'
+      : 'grid-cols-[1fr] md:grid-cols-[1fr_1.5fr]'
   "
 >
   <!-- PROJECT TITLE -->
@@ -108,8 +106,7 @@
     </div>
   </div>
 
-  <!-- @if (!this.emptyImage) { -->
-  @if (this.images.length > 1) {
+  @if (!this.uniqueImage) {
     <!-- PROJECT GALLERY -->
     @if (this.screenSize == "sm") {
       <app-image-gallery
