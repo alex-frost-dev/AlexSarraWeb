@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sansation&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,7 +13,7 @@
   --lg-font-size-title: 1.1rem;
   --xl-font-size-title: 1.35rem;
 
-  --min-font-size-normal-text: 0.3rem;
+  --min-font-size-normal-text: 0.45rem;
   --sm-font-size-normal-text: 0.5rem;
   --md-font-size-normal-text: 0.75rem;
   --lg-font-size-normal-text: 1rem;
@@ -21,7 +25,9 @@ body {
   height: 100%;
 }
 body {
-  --font-color: white;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  --font-color: white;
+  /* font-family: "Noto Sans", sans-serif; */
+  /* font-family: "Sansation", sans-serif; */
+  font-family: "Titillium Web", sans-serif;
 }
