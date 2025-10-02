@@ -2,7 +2,7 @@
   <div class="flex flex-row items-center gap-4">
     <div class="flex w-auto justify-center" *ngFor="let img of this.images">
       <img
-        class="max-h-20 cursor-pointer rounded duration-150 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-white/20 md:max-h-40"
+        class="max-h-12 cursor-pointer rounded duration-150 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-white/20 md:max-h-32"
         [src]="img"
         (click)="sendImage(img)"
       />

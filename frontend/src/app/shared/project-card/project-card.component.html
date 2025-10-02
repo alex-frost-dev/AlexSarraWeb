@@ -8,7 +8,7 @@
 >
   <!-- PROJECT TITLE -->
   <div
-    class="row-start-1 inline-flex h-auto items-center gap-2 text-[length:--min-font-size-title] sm:text-[length:--sm-font-size-title] md:gap-4 md:text-[length:--md-font-size-title] lg:text-[length:--lg-font-size-title] xl:text-[length:--xl-font-size-title]"
+    class="row-start-1 inline-flex h-auto items-center gap-2 text-[length:--sm-font-size-title] md:gap-4 md:text-[length:--md-font-size-title] lg:text-[length:--lg-font-size-title] xl:text-[length:--xl-font-size-title]"
     [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
   >
     <a
@@ -40,7 +40,7 @@
   <!-- PROJECT DESCRIPTION -->
   <div
     [ngClass]="!this.isInverted ? 'col-start-1' : 'col-start-2'"
-    class="col-start-1 row-start-2 grid h-auto min-w-[350px] grid-cols-[10fr_1fr] items-center gap-4 text-[length:--min-font-size-normal-text] sm:text-[length:--sm-font-size-normal-text] md:text-[length:--md-font-size-normal-text] lg:text-[length:--lg-font-size-normal-text] xl:text-[length:--xl-font-size-normal-text]"
+    class="col-start-1 row-start-2 grid h-auto min-w-[350px] grid-cols-[10fr_1fr] items-center gap-4 text-[length:--sm-font-size-normal-text] md:text-[length:--md-font-size-normal-text] lg:text-[length:--lg-font-size-normal-text] xl:text-[length:--xl-font-size-normal-text]"
   >
     <div class="col-start-1">
       <p [innerHTML]="this.projectPrefix + '.description' | translate"></p>
@@ -106,8 +106,69 @@
     </div>
   </div>
 
-  @if (!this.uniqueImage) {
-    <!-- PROJECT GALLERY -->
+  <!-- PROJECT GALLERY ++ PROJECT PREVIEW IMAGE -->
+
+  @if (this.uniqueImage) {
+    @if (this.screenSize == "sm") {
+      <app-image-gallery
+        [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
+        class="row-start-3 flex h-auto align-middle"
+        [maxNumItems]="this.jsonProject?.imagesPerRow"
+        [images]="this.projectPrefix + '.images' | translate"
+        (imageClicked)="handleClickedImage($event)"
+        [screenSize]="this.screenSize"
+      ></app-image-gallery>
+    } @else {
+      <div
+        class="row-span-full row-start-3 flex h-full w-full items-center justify-center md:row-start-1"
+      >
+        <div
+          class="row-span-full row-start-3 flex h-full w-full items-center justify-center md:row-start-1"
+        >
+          <app-image-preview
+            [ngClass]="this.isInverted ? 'col-start-1' : 'col-start-2'"
+            [images]="this.images"
+            [isInverted]="this.isInverted"
+            [currentPreviewImage]="this.currentPreviewImage"
+            class="h-full max-h-full w-full object-contain"
+          ></app-image-preview>
+        </div>
+      </div>
+    }
+  } @else {
+    @if (this.screenSize == "sm") {
+      <app-image-gallery
+        [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
+        class="row-start-3 flex h-auto align-middle"
+        [maxNumItems]="this.jsonProject?.imagesPerRow"
+        [images]="this.projectPrefix + '.images' | translate"
+        (imageClicked)="handleClickedImage($event)"
+        [screenSize]="this.screenSize"
+      ></app-image-gallery>
+    } @else {
+      <app-image-gallery
+        [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
+        class="row-start-3 flex h-auto align-middle"
+        [maxNumItems]="this.jsonProject?.imagesPerRow"
+        [images]="this.projectPrefix + '.images' | translate"
+        (imageClicked)="handleClickedImage($event)"
+        [screenSize]="this.screenSize"
+      ></app-image-gallery>
+      <div
+        class="row-span-full row-start-3 flex h-full w-full items-center justify-center md:row-start-1"
+      >
+        <app-image-preview
+          [ngClass]="this.isInverted ? 'col-start-1' : 'col-start-2'"
+          [images]="this.images"
+          [isInverted]="this.isInverted"
+          [currentPreviewImage]="this.currentPreviewImage"
+          class="h-full max-h-full w-full object-contain"
+        ></app-image-preview>
+      </div>
+    }
+  }
+
+  <!-- @if (!this.uniqueImage) {
     @if (this.screenSize == "sm") {
       <app-image-gallery
         [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
@@ -126,19 +187,17 @@
         (imageClicked)="handleClickedImage($event)"
         [screenSize]="this.screenSize"
       ></app-image-gallery>
+      <div
+        class="row-span-full row-start-3 flex h-full w-full items-center justify-center md:row-start-1"
+      >
+        <app-image-preview
+          [ngClass]="this.isInverted ? 'col-start-1' : 'col-start-2'"
+          [images]="this.images"
+          [isInverted]="this.isInverted"
+          [currentPreviewImage]="this.currentPreviewImage"
+          class="h-full max-h-full w-full object-contain"
+        ></app-image-preview>
+      </div>
     }
-  }
-
-  <!-- PROJECT PREVIEW IMAGE -->
-  <div
-    class="row-span-full row-start-3 flex h-full w-full items-center justify-center md:row-start-1"
-  >
-    <app-image-preview
-      [ngClass]="this.isInverted ? 'col-start-1' : 'col-start-2'"
-      [images]="this.images"
-      [isInverted]="this.isInverted"
-      [currentPreviewImage]="this.currentPreviewImage"
-      class="h-full max-h-full w-full object-contain"
-    ></app-image-preview>
-  </div>
+  } -->
 </div>

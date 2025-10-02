@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Sansation&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sansation&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
 
 @tailwind base;
@@ -7,13 +7,16 @@
 @tailwind utilities;
 
 :root {
-  --min-font-size-title: 0.4rem;
   --sm-font-size-title: 0.6rem;
   --md-font-size-title: 0.85rem;
   --lg-font-size-title: 1.1rem;
   --xl-font-size-title: 1.35rem;
 
-  --min-font-size-normal-text: 0.45rem;
+  --sm-font-size-navbar: 0.6rem;
+  --md-font-size-navbar: 0.85rem;
+  --lg-font-size-navbar: 1.1rem;
+  --xl-font-size-navbar: 1.35rem;
+
   --sm-font-size-normal-text: 0.5rem;
   --md-font-size-normal-text: 0.75rem;
   --lg-font-size-normal-text: 1rem;

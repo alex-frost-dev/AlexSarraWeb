@@ -11,7 +11,6 @@ export class WindowSizeService implements OnDestroy {
 
   constructor() {
     this.subscription = fromEvent(window, 'resize').subscribe(() => {
-      console.log('Service emits:', this.detectScreenSize());
       this.resizeSubject.next(this.detectScreenSize());
     });
   }
