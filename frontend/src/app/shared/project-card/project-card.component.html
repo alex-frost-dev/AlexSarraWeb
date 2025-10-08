@@ -119,17 +119,15 @@
       ></app-image-gallery>
     } @else {
       <div
-        class="row-span-full row-start-3 flex h-full w-full items-center justify-center md:row-start-1"
+        class="row-start-2 flex h-full w-full items-center justify-center"
+        [ngClass]="this.isInverted ? 'col-start-1' : 'col-start-2'"
       >
-        <div
-          class="row-span-full row-start-3 flex h-full w-full items-center justify-center md:row-start-1"
-        >
+        <div class="flex h-full w-full items-center justify-center">
           <app-image-preview
-            [ngClass]="this.isInverted ? 'col-start-1' : 'col-start-2'"
             [images]="this.images"
             [isInverted]="this.isInverted"
             [currentPreviewImage]="this.currentPreviewImage"
-            class="row-start-2 h-full max-h-full w-full object-contain"
+            class="h-full max-h-full w-full object-contain"
           ></app-image-preview>
         </div>
       </div>
@@ -154,7 +152,7 @@
         [screenSize]="this.screenSize"
       ></app-image-gallery>
       <div
-        class="row-span-full row-start-3 flex h-full w-full items-center justify-center md:row-start-2"
+        class="row-span-full row-start-2 flex h-full w-full items-center justify-center"
       >
         <app-image-preview
           [ngClass]="this.isInverted ? 'col-start-1' : 'col-start-2'"
@@ -166,37 +164,4 @@
       </div>
     }
   }
-
-  <!-- @if (!this.uniqueImage) {
-    @if (this.screenSize == "sm") {
-      <app-image-gallery
-        [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
-        class="row-start-3 flex h-auto align-middle"
-        [maxNumItems]="this.jsonProject?.imagesPerRow"
-        [images]="this.projectPrefix + '.images' | translate"
-        (imageClicked)="(null)"
-        [screenSize]="this.screenSize"
-      ></app-image-gallery>
-    } @else {
-      <app-image-gallery
-        [ngClass]="this.isInverted ? 'col-start-2' : 'col-start-1'"
-        class="row-start-3 flex h-auto align-middle"
-        [maxNumItems]="this.jsonProject?.imagesPerRow"
-        [images]="this.projectPrefix + '.images' | translate"
-        (imageClicked)="handleClickedImage($event)"
-        [screenSize]="this.screenSize"
-      ></app-image-gallery>
-      <div
-        class="row-span-full row-start-3 flex h-full w-full items-center justify-center md:row-start-1"
-      >
-        <app-image-preview
-          [ngClass]="this.isInverted ? 'col-start-1' : 'col-start-2'"
-          [images]="this.images"
-          [isInverted]="this.isInverted"
-          [currentPreviewImage]="this.currentPreviewImage"
-          class="h-full max-h-full w-full object-contain"
-        ></app-image-preview>
-      </div>
-    }
-  } -->
 </div>
