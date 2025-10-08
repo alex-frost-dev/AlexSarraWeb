@@ -8,6 +8,7 @@ export class WindowSizeService implements OnDestroy {
   private resizeSubject = new BehaviorSubject<string>(this.detectScreenSize());
   resize$ = this.resizeSubject.asObservable();
   private subscription!: Subscription;
+  private lastSavedSize!: string;
 
   constructor() {
     this.subscription = fromEvent(window, 'resize').subscribe(() => {
@@ -16,17 +17,23 @@ export class WindowSizeService implements OnDestroy {
   }
 
   public detectScreenSize() {
+    var sizeLabel;
     if (window.matchMedia('(min-width: 1280px)').matches) {
-      return 'xl';
+      sizeLabel = 'xl';
     } else if (window.matchMedia('(min-width: 1024px)').matches) {
-      return 'lg';
+      sizeLabel = 'lg';
     } else if (window.matchMedia('(min-width: 768px)').matches) {
-      return 'md';
+      sizeLabel = 'md';
     } else if (window.matchMedia('(min-width: 640px)').matches) {
-      return 'sm';
+      sizeLabel = 'sm';
     } else {
-      return 'sm';
+      sizeLabel = 'sm';
     }
+    if (this.lastSavedSize != sizeLabel) {
+      console.log('Changed from', this.lastSavedSize, 'to', sizeLabel);
+      this.lastSavedSize = sizeLabel;
+    }
+    return sizeLabel;
   }
 
   ngOnDestroy() {
