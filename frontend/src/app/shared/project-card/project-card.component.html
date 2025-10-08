@@ -1,5 +1,5 @@
 <div
-  class="fade-in grid max-h-max grid-rows-[0.1fr_0.1fr_0.1fr_0.1fr] gap-y-2 text-black dark:text-white md:grid-rows-[0.1fr_0.5fr_0.1fr] md:gap-6"
+  class="fade-in grid max-h-max min-w-[300px] grid-rows-[0.1fr_0.1fr_0.1fr_0.1fr] gap-y-2 text-black dark:text-white md:grid-rows-[0.1fr_0.5fr_0.1fr] md:gap-6"
   [ngClass]="
     !this.isInverted
       ? 'grid-cols-[1fr] md:grid-cols-[1.5fr_1fr]'
@@ -39,10 +39,13 @@
   <!-- PROJECT DESCRIPTION -->
   <div
     [ngClass]="!this.isInverted ? 'col-start-1' : 'col-start-2'"
-    class="col-start-1 row-start-2 grid h-auto min-w-[200px] grid-cols-[10fr_1fr] items-center gap-4 text-[length:--sm-font-size-normal-text] md:min-w-[50vw] md:text-[length:--md-font-size-normal-text] lg:text-[length:--lg-font-size-normal-text] xl:text-[length:--xl-font-size-normal-text]"
+    class="col-start-1 row-start-2 grid h-full min-w-[200px] grid-cols-[10fr_1fr] items-center gap-4 text-[length:--sm-font-size-normal-text] md:min-w-[50vw] md:text-[length:--md-font-size-normal-text] lg:text-[length:--lg-font-size-normal-text] xl:text-[length:--xl-font-size-normal-text]"
   >
-    <div class="col-start-1">
-      <p [innerHTML]="this.projectPrefix + '.description' | translate"></p>
+    <div class="col-start-1 flex lg:min-h-[300px]">
+      <p
+        class="h-auto self-center"
+        [innerHTML]="this.projectPrefix + '.description' | translate"
+      ></p>
     </div>
     <!-- PROJECT META INFO -->
     <div class="col-start-2 flex h-auto w-full items-center align-middle">
