@@ -30,7 +30,12 @@ export class WindowSizeService implements OnDestroy {
       sizeLabel = 'sm';
     }
     if (this.lastSavedSize != sizeLabel) {
-      console.log('Changed from', this.lastSavedSize, 'to', sizeLabel);
+      console.log(
+        'Changed screen size from',
+        this.lastSavedSize,
+        'to',
+        sizeLabel,
+      );
       this.lastSavedSize = sizeLabel;
     }
     return sizeLabel;

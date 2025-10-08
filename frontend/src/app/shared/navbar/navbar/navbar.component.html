@@ -5,15 +5,15 @@
     <a
       class="cursor-pointer self-center text-black dark:text-white"
       href="/about"
-      >About me</a
-    >
+      [innerHTML]="'navigation_bar.about_me' | translate"
+    ></a>
   </div>
   <div class="mx-4 flex">
     <a
       class="cursor-pointer self-center text-black dark:text-white"
       href="/projects"
-      >Proyectos</a
-    >
+      [innerHTML]="'navigation_bar.projects' | translate"
+    ></a>
   </div>
   <div class="flex items-center">
     <app-dark-mode-toggle

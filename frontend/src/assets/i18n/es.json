@@ -86,5 +86,9 @@
         "../../../assets/images/projects/ludoteca/es/prestamos_filtro.png"
       ]
     }
+  },
+  "navigation_bar": {
+    "about_me": "Sobre mí",
+    "projects": "Proyectos"
   }
 }

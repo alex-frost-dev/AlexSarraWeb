@@ -1,0 +1,36 @@
+import { Injectable } from '@angular/core';
+import { LanguageService } from '../../language/language.service';
+import { HttpClient } from '@angular/common/http';
+import { map, Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class JsonLoaderService {
+  constructor(
+    private http: HttpClient,
+    private languageService: LanguageService,
+  ) {
+    console.log('JSON Loader Service started.');
+  }
+
+  getJson(jsonPath: string): Observable<any> {
+    let language = this.languageService.getLanguage();
+    var jsonKeys = this.extractJson(jsonPath);
+    return this.http.get<any>(`../../../assets/i18n/${language}.json`).pipe(
+      map((json) => {
+        for (const key of jsonKeys) {
+          if (key in json) {
+            json = json[key];
+          }
+        }
+        console.log('Loaded JSON:', jsonPath);
+        return json;
+      }),
+    );
+  }
+
+  extractJson(jsonPath: string) {
+    return jsonPath.split('.');
+  }
+}

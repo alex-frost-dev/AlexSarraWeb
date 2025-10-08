@@ -8,6 +8,7 @@ import { waitForAsync } from '@angular/core/testing';
 import { ImagePreviewComponent } from '../gallery/image-preview/image-preview/image-preview.component';
 import { Subscription } from 'rxjs';
 import { WindowSizeService } from '../services/window-size/window-size.service';
+import { JsonLoaderService } from '../services/jsonLoader/json-loader.service';
 
 @Component({
   selector: 'project-card',
@@ -33,7 +34,6 @@ export class ProjectCardComponent {
   defaultsPrefix: string = this.projectPrefix + '.defaults';
 
   images!: string[];
-  // emptyImage: boolean = false;
   uniqueImage: boolean = false;
   currentPreviewImage!: string;
 
@@ -42,18 +42,17 @@ export class ProjectCardComponent {
 
   constructor(
     @Inject(LanguageService) private lang: any,
+    @Inject(JsonLoaderService) private jsonLoader: any,
     private http: HttpClient,
     private windowResizeService: WindowSizeService,
   ) {}
 
   ngOnInit() {
     this.projectPrefix += '.' + this.projectName;
-    this.language = this.lang.getLanguage();
-    this.http
-      .get<any>('../../../assets/i18n/' + this.language + '.json')
-      .subscribe((json) => {
-        this.jsonProject = json['projects'][this.projectName];
-        this.labels = json['projects']['defaults'];
+    this.jsonLoader
+      .getJson(`projects.${this.projectName}`)
+      .subscribe((json: any) => {
+        this.jsonProject = json;
         this.images = this.jsonProject['images'];
         if (this.images.length > 0) {
           this.currentPreviewImage = this.images[0];
@@ -62,7 +61,6 @@ export class ProjectCardComponent {
           this.uniqueImage = true;
         }
       });
-    waitForAsync;
 
     this.screenSize = this.windowResizeService.detectScreenSize();
     this.resizeListener = this.windowResizeService.resize$.subscribe((size) => {

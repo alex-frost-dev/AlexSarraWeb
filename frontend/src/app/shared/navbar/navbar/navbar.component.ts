@@ -1,12 +1,21 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  OnInit,
+} from '@angular/core';
 import { DarkModeToggleComponent } from '../../dark-mode-toggle/dark-mode-toggle.component';
 import { WindowSizeService } from '../../services/window-size/window-size.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { LanguageService } from '../../language/language.service';
+import { TranslatePipe } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { JsonLoaderService } from '../../services/jsonLoader/json-loader.service';
 
 @Component({
   selector: 'app-navbar',
-  imports: [DarkModeToggleComponent, CommonModule],
+  imports: [DarkModeToggleComponent, CommonModule, TranslatePipe],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
   standalone: true,
@@ -14,7 +23,15 @@ import { CommonModule } from '@angular/common';
 export class NavbarComponent {
   resize$: Observable<string>;
 
-  constructor(private windowResizeService: WindowSizeService) {
+  jsonNavbar!: any;
+  language!: string;
+
+  constructor(
+    @Inject(LanguageService) private lang: any,
+    @Inject(JsonLoaderService) private jsonLoader: any,
+    private http: HttpClient,
+    private windowResizeService: WindowSizeService,
+  ) {
     this.resize$ = windowResizeService.resize$;
   }
 
