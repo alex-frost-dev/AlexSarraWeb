@@ -1,7 +1,15 @@
-import { Component, ElementRef, Input, signal, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Inject,
+  Input,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageModalWindowComponent } from '../../image-modal-window/image-modal-window.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DarkModeService } from '../../../services/dark-mode/dark-mode.service';
 
 @Component({
   selector: 'app-image-preview',
@@ -34,7 +42,10 @@ export class ImagePreviewComponent {
 
   isHovered = false;
 
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    @Inject(DarkModeService) private darkModeService: any,
+    private dialog: MatDialog,
+  ) {}
 
   ngOnInit() {
     // Images could delay a little between page load and the parent's json call response.
@@ -83,5 +94,9 @@ export class ImagePreviewComponent {
       this.imagesQueue.shift();
       // this.imagesQueue = [this.imagesQueue[this.imagesQueue.length - 1]];
     }
+  }
+
+  isDarkMode(): boolean {
+    return this.darkModeService.isDarkMode();
   }
 }

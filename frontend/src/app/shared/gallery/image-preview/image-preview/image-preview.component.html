@@ -41,9 +41,16 @@
     [ngStyle]="this.spanOverlayStyle"
     [ngClass]="isHovered ? 'opacity-100' : 'opacity-0'"
   >
-    <img
-      class="h-1/6"
-      src="../../../../../assets/images/icons/search_icon_black.png"
-    />
+    @if (this.isDarkMode()) {
+      <img
+        class="h-1/6"
+        src="../../../../../assets/images/icons/search_icon_white.png"
+      />
+    } @else {
+      <img
+        class="h-1/6"
+        src="../../../../../assets/images/icons/search_icon_black.png"
+      />
+    }
   </span>
 </div>
