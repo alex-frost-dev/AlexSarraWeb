@@ -8,9 +8,9 @@
 
 :root {
   --sm-font-size-title: 0.6rem;
-  --md-font-size-title: 0.85rem;
-  --lg-font-size-title: 1.1rem;
-  --xl-font-size-title: 1.35rem;
+  --md-font-size-title: 1rem;
+  --lg-font-size-title: 1.3rem;
+  --xl-font-size-title: 1.5rem;
 
   --sm-font-size-navbar: 0.6rem;
   --md-font-size-navbar: 0.85rem;
