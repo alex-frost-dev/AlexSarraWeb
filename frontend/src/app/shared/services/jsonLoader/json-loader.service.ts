@@ -11,7 +11,7 @@ export class JsonLoaderService {
     private http: HttpClient,
     private languageService: LanguageService,
   ) {
-    console.log('JSON Loader Service started.');
+    console.log('[JSON] Loader Service started.');
   }
 
   getJson(jsonPath: string): Observable<any> {
@@ -24,7 +24,7 @@ export class JsonLoaderService {
             json = json[key];
           }
         }
-        console.log('Loaded JSON:', jsonPath);
+        console.log('[JSON] Loaded JSON obj:', jsonPath);
         return json;
       }),
     );

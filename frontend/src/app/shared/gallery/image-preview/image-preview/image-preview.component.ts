@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  Inject,
-  Input,
-  signal,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, Inject, Input, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageModalWindowComponent } from '../../image-modal-window/image-modal-window.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -85,8 +78,7 @@ export class ImagePreviewComponent {
   }
 
   updateOverlay() {
-    console.log('UPDATED OVERLAY!');
-    if (this.img.nativeElement) {
+    if (this.img?.nativeElement) {
       const rect = this.img.nativeElement.getBoundingClientRect();
       this.spanOverlayStyle = {
         position: 'absolute',

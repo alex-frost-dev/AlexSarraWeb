@@ -52,4 +52,8 @@ export class NavbarComponent {
         return 30;
     }
   }
+
+  getCurrentLanguage() {
+    return this.lang.getLanguage();
+  }
 }
