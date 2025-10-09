@@ -14,9 +14,10 @@
             class="enter-animation-right absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain duration-500 hover:blur-[0.75px]"
             animate.leave="leaving"
             src="{{ imgSrc }}"
-            (click)="openPreviewedImage()"
-            (load)="updateOverlay()"
-            (animationstart)="cleanPreviousImages()"
+            (click)="this.openPreviewedImage()"
+            (load)="this.updateOverlay()"
+            (animationstart)="this.cleanPreviousImages()"
+            (animationend)="this.updateOverlay()"
             (mouseenter)="isHovered = true"
             (mouseleave)="isHovered = false"
           />
@@ -26,9 +27,10 @@
             class="enter-animation-left absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain duration-500 hover:blur-[0.75px]"
             animate.leave="leaving"
             src="{{ imgSrc }}"
-            (click)="openPreviewedImage()"
-            (load)="updateOverlay()"
-            (animationstart)="cleanPreviousImages()"
+            (click)="this.openPreviewedImage()"
+            (load)="this.updateOverlay()"
+            (animationstart)="this.cleanPreviousImages()"
+            (animationend)="this.updateOverlay()"
             (mouseenter)="isHovered = true"
             (mouseleave)="isHovered = false"
           />
@@ -43,13 +45,17 @@
   >
     @if (this.isDarkMode()) {
       <img
-        class="h-1/6"
+        #magnIcon
+        class="z-10 h-1/6"
         src="../../../../../assets/images/icons/search_icon_white.png"
+        (load)="this.updateOverlay()"
       />
     } @else {
       <img
-        class="h-1/6"
+        #magnIcon
+        class="z-10 h-1/6"
         src="../../../../../assets/images/icons/search_icon_black.png"
+        (load)="this.updateOverlay()"
       />
     }
   </span>

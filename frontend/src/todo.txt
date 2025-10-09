@@ -1,4 +1,5 @@
-Good info:
+GOOD INFO:
  https://unsplash.com/ -> Buenas web para backround images
 
-- Animación de imágenes en el image-gallery. Ya hay pruebas en shared/test/img-movables
+BUGS CONOCIDOS:
+-

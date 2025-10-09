@@ -37,6 +37,8 @@ export class ImagePreviewComponent {
   }
 
   @ViewChild('img', { static: false }) img!: ElementRef<HTMLImageElement>;
+  @ViewChild('magnIcon', { static: false })
+  magnIcon!: ElementRef<HTMLImageElement>;
   spanOverlayStyle: any = {};
   resizeListener: any;
 
@@ -52,17 +54,24 @@ export class ImagePreviewComponent {
     if (this.images) {
       this.currentPreviewImage = this.images[0];
     }
+    // Initialize resize Listener
+    this.resizeListener = this.updateOverlay();
   }
 
   ngAfterViewInit() {
-    // Initial calculation
-    this.updateOverlay();
     // Listen for window resize
-    this.resizeListener = () => this.updateOverlay();
+    this.updateOverlay();
+    // this.img.nativeElement.addEventListener('load', this.resizeListener);
+    // this.magnIcon.nativeElement.addEventListener('load', this.resizeListener);
     window.addEventListener('resize', this.resizeListener);
   }
 
   ngOnDestroy() {
+    // this.img.nativeElement.removeEventListener('load', this.resizeListener);
+    // this.magnIcon.nativeElement.removeEventListener(
+    //   'load',
+    //   this.resizeListener,
+    // );
     window.removeEventListener('resize', this.resizeListener);
   }
 
@@ -76,7 +85,8 @@ export class ImagePreviewComponent {
   }
 
   updateOverlay() {
-    if (this.img?.nativeElement) {
+    console.log('UPDATED OVERLAY!');
+    if (this.img.nativeElement) {
       const rect = this.img.nativeElement.getBoundingClientRect();
       this.spanOverlayStyle = {
         position: 'absolute',
@@ -92,7 +102,6 @@ export class ImagePreviewComponent {
   cleanPreviousImages() {
     if (this.imagesQueue.length > 1) {
       this.imagesQueue.shift();
-      // this.imagesQueue = [this.imagesQueue[this.imagesQueue.length - 1]];
     }
   }
 
