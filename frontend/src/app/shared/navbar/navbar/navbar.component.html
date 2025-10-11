@@ -21,5 +21,21 @@
       [height]="getToggleHeight(resize$ | async)"
     ></app-dark-mode-toggle>
   </div>
-  <button>{{ this.getCurrentLanguage().toUpperCase() }}</button>
+  <div ngbDropdown container="body" class="overflow-hidden">
+    <button
+      type="button"
+      class="btn btn-outline-primary btn-sm"
+      [style.height.px]="'500px'"
+      ngbDropdownToggle
+    >
+      Actions
+    </button>
+    <div ngbDropdownMenu class="absolute flex flex-col">
+      <button ngbDropdownItem>Edit</button>
+      <button ngbDropdownItem>Duplicate</button>
+      <button ngbDropdownItem>Move</button>
+      <div class="dropdown-divider"></div>
+      <button ngbDropdownItem>Delete</button>
+    </div>
+  </div>
 </nav>

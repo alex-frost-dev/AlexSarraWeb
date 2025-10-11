@@ -28,6 +28,7 @@ export class DarkModeService {
     const html = document.documentElement;
     const isDark = html.classList.contains('dark');
     this.setDarkMode(!isDark);
+    console.log('Dark mode:', isDark);
   }
 
   isDarkMode(): boolean {

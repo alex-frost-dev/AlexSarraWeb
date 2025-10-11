@@ -12,10 +12,16 @@ import { LanguageService } from '../../language/language.service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { JsonLoaderService } from '../../services/jsonLoader/json-loader.service';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-navbar',
-  imports: [DarkModeToggleComponent, CommonModule, TranslatePipe],
+  imports: [
+    DarkModeToggleComponent,
+    CommonModule,
+    TranslatePipe,
+    NgbDropdownModule,
+  ],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
   standalone: true,
