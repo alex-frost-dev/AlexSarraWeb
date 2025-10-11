@@ -1,5 +1,5 @@
 <div
-  class="fade-in grid max-h-max min-w-[300px] grid-rows-[0.1fr_0.1fr_0.1fr_0.1fr] gap-y-2 text-black dark:text-white md:grid-rows-[0.1fr_0.5fr_0.1fr] md:gap-6"
+  class="fade-in grid max-h-max min-w-[300px] grid-rows-[0.1fr_0.1fr_0.1fr_0.1fr] gap-y-2 !text-black dark:!text-white md:grid-rows-[0.1fr_0.5fr_0.1fr] md:gap-6"
   [ngClass]="
     !this.isInverted
       ? 'grid-cols-[1fr] md:grid-cols-[1.5fr_1fr]'
@@ -53,7 +53,7 @@
       <div class="grid w-full auto-rows-auto grid-rows-2">
         <!-- Frameworks -->
         <div
-          class="row-start-1 flex flex-col items-center justify-center border-b-2 border-l-2 border-black dark:border-white"
+          class="row-start-1 flex flex-col items-center justify-center border-b-2 border-l-2 !border-black dark:!border-white"
         >
           <p
             class="justify-center"
@@ -71,7 +71,7 @@
         <div class="row-start-2 flex w-full">
           <!-- Year -->
           <div
-            class="flex flex-col justify-start border-l-2 border-r-2 border-black px-0.5 py-4 text-center dark:border-white md:px-2"
+            class="flex flex-col justify-start border-l-2 border-r-2 !border-black px-0.5 py-4 text-center dark:!border-white md:px-2"
           >
             <u class="self-center font-bold">{{
               this.defaultsPrefix + ".year_label" | translate
@@ -83,7 +83,7 @@
           </div>
           <!-- Duration -->
           <div
-            class="flex flex-col justify-start border-r-2 border-black px-0.5 py-4 text-center dark:border-white md:px-2"
+            class="flex flex-col justify-start border-r-2 !border-black px-0.5 py-4 text-center dark:!border-white md:px-2"
           >
             <u class="self-center font-bold">{{
               this.defaultsPrefix + ".duration_label" | translate
