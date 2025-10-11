@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  OnInit,
-} from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { DarkModeToggleComponent } from '../../dark-mode-toggle/dark-mode-toggle.component';
 import { WindowSizeService } from '../../services/window-size/window-size.service';
 import { Observable } from 'rxjs';
@@ -31,14 +26,18 @@ export class NavbarComponent {
 
   jsonNavbar!: any;
   language!: string;
+  allLanguages!: { [key: string]: any };
 
   constructor(
-    @Inject(LanguageService) private lang: any,
+    @Inject(LanguageService) private languageService: any,
     @Inject(JsonLoaderService) private jsonLoader: any,
     private http: HttpClient,
     private windowResizeService: WindowSizeService,
   ) {
     this.resize$ = windowResizeService.resize$;
+    this.jsonLoader.getJson('languages').subscribe((json: any) => {
+      this.allLanguages = json;
+    });
   }
 
   getToggleWidth(size: any): number {
@@ -60,6 +59,21 @@ export class NavbarComponent {
   }
 
   getCurrentLanguage() {
-    return this.lang.getLanguage();
+    return this.languageService.getLanguage();
+  }
+
+  getLanguagesValues() {
+    if (this.allLanguages) {
+      return Object.values(this.allLanguages);
+    }
+    return null;
+  }
+
+  setLanguage(langValue: string) {
+    const key = Object.keys(this.allLanguages).find(
+      (k) => this.allLanguages[k] === langValue,
+    );
+    console.log(key, langValue);
+    this.languageService.setLanguage(key, langValue);
   }
 }

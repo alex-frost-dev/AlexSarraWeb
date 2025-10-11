@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class DarkModeService {
-  private darkModeKey = 'darkMode';
+  private darkModeKey = 'dark_mode';
 
   constructor() {
     const saved = localStorage.getItem(this.darkModeKey);
@@ -17,10 +17,10 @@ export class DarkModeService {
     const html = document.documentElement;
     if (isDark) {
       html.classList.add('dark');
-      localStorage.setItem(this.darkModeKey, 'dark');
+      localStorage.setItem(this.darkModeKey, 'true');
     } else {
       html.classList.remove('dark');
-      localStorage.setItem(this.darkModeKey, 'light');
+      localStorage.setItem(this.darkModeKey, 'false');
     }
   }
 

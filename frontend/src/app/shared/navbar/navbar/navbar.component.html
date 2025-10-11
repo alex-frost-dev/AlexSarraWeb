@@ -1,16 +1,16 @@
 <nav
-  class="relative m-3 flex h-12 justify-end rounded text-[length:--sm-font-size-navbar] md:text-[length:--md-font-size-navbar] lg:text-[length:--lg-font-size-navbar] xl:text-[length:--xl-font-size-navbar]"
+  class="relative m-3 flex h-12 justify-end rounded text-[length:--sm-font-size-navbar] !text-black dark:!text-white md:text-[length:--md-font-size-navbar] lg:text-[length:--lg-font-size-navbar] xl:text-[length:--xl-font-size-navbar]"
 >
   <div class="mx-4 flex">
     <a
-      class="cursor-pointer self-center text-black dark:text-white"
+      class="cursor-pointer self-center"
       href="/about"
       [innerHTML]="'navigation_bar.about_me' | translate"
     ></a>
   </div>
   <div class="mx-4 flex">
     <a
-      class="cursor-pointer self-center text-black dark:text-white"
+      class="cursor-pointer self-center"
       href="/projects"
       [innerHTML]="'navigation_bar.projects' | translate"
     ></a>
@@ -21,21 +21,21 @@
       [height]="getToggleHeight(resize$ | async)"
     ></app-dark-mode-toggle>
   </div>
-  <div ngbDropdown container="body" class="overflow-hidden">
+  <div ngbDropdown container="body" class="overflow-hidden text-end">
     <button
       type="button"
-      class="btn btn-outline-primary btn-sm"
+      class="btn btn-outline-primary btn-sm h-12"
       [style.height.px]="'500px'"
       ngbDropdownToggle
     >
-      Actions
+      {{ this.getCurrentLanguage().toUpperCase() }}
     </button>
-    <div ngbDropdownMenu class="absolute flex flex-col">
-      <button ngbDropdownItem>Edit</button>
-      <button ngbDropdownItem>Duplicate</button>
-      <button ngbDropdownItem>Move</button>
-      <div class="dropdown-divider"></div>
-      <button ngbDropdownItem>Delete</button>
+    <div ngbDropdownMenu>
+      @for (langKey of this.getLanguagesValues(); track langKey) {
+        <button ngbDropdownItem (click)="this.setLanguage(langKey)">
+          {{ langKey }}
+        </button>
+      }
     </div>
   </div>
 </nav>

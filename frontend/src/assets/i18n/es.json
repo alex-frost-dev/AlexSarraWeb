@@ -90,5 +90,9 @@
   "navigation_bar": {
     "about_me": "Sobre mí",
     "projects": "Proyectos"
+  },
+  "languages": {
+    "es": "Español",
+    "en": "Inglés"
   }
 }

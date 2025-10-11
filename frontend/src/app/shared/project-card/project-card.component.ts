@@ -54,11 +54,13 @@ export class ProjectCardComponent {
       .subscribe((json: any) => {
         this.jsonProject = json;
         this.images = this.jsonProject['images'];
-        if (this.images.length > 0) {
-          this.currentPreviewImage = this.images[0];
-        }
-        if (this.images.length == 1) {
-          this.uniqueImage = true;
+        if (this.images) {
+          if (this.images.length > 0) {
+            this.currentPreviewImage = this.images[0];
+          }
+          if (this.images.length == 1) {
+            this.uniqueImage = true;
+          }
         }
       });
 

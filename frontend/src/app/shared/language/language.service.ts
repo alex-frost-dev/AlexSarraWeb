@@ -3,8 +3,9 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
-  readonly LANG_KEY = 'app_language';
+  readonly LANG_KEY = 'language';
   readonly DEFAULT_LANG = 'es';
+  allLanguages!: readonly string[];
 
   constructor(private translate: TranslateService) {}
 
@@ -19,7 +20,6 @@ export class LanguageService {
 
   initLanguage() {
     const lang = this.getLanguage();
-    //this.translate.setDefaultLang(this.DEFAULT_LANG);
-    this.translate.use(this.DEFAULT_LANG);
+    this.translate.use(lang);
   }
 }

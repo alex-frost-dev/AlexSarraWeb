@@ -24,7 +24,7 @@ export class JsonLoaderService {
             json = json[key];
           }
         }
-        console.log('[JSON] Loaded JSON obj:', jsonPath);
+        console.log(`[${language}: JSON] Loaded JSON obj ${jsonPath}`);
         return json;
       }),
     );

@@ -1,15 +1,30 @@
 {
-  "HOME": {
-    "WELCOME": "Welcome",
-    "DESCRIPTION": "This is the home page"
+  "projects": {
+    "defaults": {
+      "year_label": "Year",
+      "duration_label": "Duration",
+      "tools_label": "Tools"
+    }
   },
-  "LOGIN": {
-    "USERNAME": "Username",
-    "PASSWORD": "Password",
-    "BUTTON": "Login"
+  "gestor_facturas": {
+    "name": "",
+    "description": "",
+    "frameworks": {
+      "title": "",
+      "secondary": ""
+    },
+    "year": "",
+    "duration": "",
+    "tools": "",
+    "github": "",
+    "images": ["../../../assets/images/projects/gestor_facturas/importar.png"]
   },
-  "ERRORS": {
-    "REQUIRED": "This field is required",
-    "INVALID": "Invalid value"
+  "navigation_bar": {
+    "about_me": "XXX",
+    "projects": "XXX"
+  },
+  "languages": {
+    "es": "Spanish",
+    "en": "English"
   }
 }
