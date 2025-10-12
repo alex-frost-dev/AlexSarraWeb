@@ -43,11 +43,14 @@
     <img
       #magnIcon
       class="z-20 h-1/6"
-      [src]="
-        this.isDarkMode()
-          ? '../../../../../assets/images/icons/search_icon_white.png'
-          : '../../../../../assets/images/icons/search_icon_black.png'
-      "
+      src="../../../../../assets/images/icons/search_icon_white.png"
+      [ngClass]="this.isDarkMode() ? '' : 'hidden'"
+    />
+    <img
+      #magnIcon
+      class="z-20 h-1/6"
+      src="../../../../../assets/images/icons/search_icon_black.png"
+      [ngClass]="this.isDarkMode() ? 'hidden' : ''"
     />
   </span>
 </div>

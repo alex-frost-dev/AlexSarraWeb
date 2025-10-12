@@ -1,4 +1,13 @@
-import { Component, ElementRef, Inject, Input, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  Inject,
+  Input,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageModalWindowComponent } from '../../image-modal-window/image-modal-window.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -21,15 +30,15 @@ export class ImagePreviewComponent {
   set currentPreviewImage(value: string) {
     this.previousPreviewImage = this._currentPreviewImage;
     this._currentPreviewImage = value;
-    console.log('Current:', this._currentPreviewImage);
-    console.log('Previous:', this.previousPreviewImage);
+    // console.log('Current:', this._currentPreviewImage);
+    // console.log('Previous:', this.previousPreviewImage);
   }
   get currentPreviewImage(): string | null {
     return this._currentPreviewImage;
   }
 
   @ViewChild('img', { static: false }) img!: ElementRef<HTMLImageElement>;
-  @ViewChild('magnIcon', { static: false })
+  @ViewChildren('magnIcon') magnIcons!: QueryList<ElementRef<HTMLImageElement>>;
   magnIcon!: ElementRef<HTMLImageElement>;
   spanOverlayStyle: any = {};
   resizeListener: any;
@@ -39,6 +48,7 @@ export class ImagePreviewComponent {
   constructor(
     @Inject(DarkModeService) private darkModeService: any,
     private dialog: MatDialog,
+    private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit() {
@@ -47,7 +57,9 @@ export class ImagePreviewComponent {
       this.currentPreviewImage = this.images[0];
     }
     // Initialize resize Listener
-    // this.resizeListener = this.updateOverlay();
+    this.resizeListener = () => {
+      this.updateOverlay(this.currentPreviewImage!);
+    };
   }
 
   ngAfterViewInit() {
@@ -71,7 +83,6 @@ export class ImagePreviewComponent {
   updateOverlay(imageStr: string) {
     if (imageStr === this.currentPreviewImage) {
       if (this.img?.nativeElement) {
-        console.log('Updated uverlay', this.img);
         const rect = this.img.nativeElement.getBoundingClientRect();
         this.spanOverlayStyle = {
           position: 'absolute',
@@ -86,7 +97,6 @@ export class ImagePreviewComponent {
   }
 
   isDarkMode(): boolean {
-    console.log(this.darkModeService.isDarkMode());
     return this.darkModeService.isDarkMode();
   }
 }

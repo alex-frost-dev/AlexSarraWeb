@@ -19,8 +19,8 @@
           (click)="$event.stopPropagation(); prev()"
           [ngClass]="
             startIndex != currentSrcIndex
-              ? 'text-black dark:text-white'
-              : 'text-gray-500'
+              ? '!text-black dark:!text-white'
+              : '!text-gray-500'
           "
         >
           &#60;
@@ -46,8 +46,8 @@
           (click)="$event.stopPropagation(); next()"
           [ngClass]="
             endIndex != currentSrcIndex
-              ? 'text-black dark:text-white'
-              : 'text-gray-500'
+              ? '!text-black dark:!text-white'
+              : '!text-gray-500'
           "
         >
           &#62;
