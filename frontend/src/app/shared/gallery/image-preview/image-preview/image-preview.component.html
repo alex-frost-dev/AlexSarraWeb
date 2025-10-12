@@ -11,7 +11,7 @@
         @if (imgSrc === this.currentPreviewImage) {
           <img
             #img
-            class="absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain hover:blur-[0.75px]"
+            class="absolute z-[1] max-h-full max-w-full cursor-pointer justify-center rounded object-contain hover:!blur-[0.75px]"
             src="{{ imgSrc }}"
             (click)="this.openPreviewedImage()"
             (mouseenter)="isHovered = true"
@@ -23,7 +23,7 @@
           />
         }
         <img
-          class="absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain hover:blur-[0.75px]"
+          class="absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain"
           src="{{ imgSrc }}"
           (click)="this.openPreviewedImage()"
           (mouseenter)="isHovered = true"
@@ -42,13 +42,13 @@
   >
     <img
       #magnIcon
-      class="z-20 h-1/6"
+      class="z-20 h-10 lg:h-16"
       src="../../../../../assets/images/icons/search_icon_white.png"
       [ngClass]="this.isDarkMode() ? '' : 'hidden'"
     />
     <img
       #magnIcon
-      class="z-20 h-1/6"
+      class="z-20 h-16"
       src="../../../../../assets/images/icons/search_icon_black.png"
       [ngClass]="this.isDarkMode() ? 'hidden' : ''"
     />
