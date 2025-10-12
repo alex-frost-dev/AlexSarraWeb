@@ -4,7 +4,6 @@ import { LanguageService } from '../language/language.service';
 import { GalleryComponent } from '../gallery/image-gallery/image-gallery.component';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { waitForAsync } from '@angular/core/testing';
 import { ImagePreviewComponent } from '../gallery/image-preview/image-preview/image-preview.component';
 import { Subscription } from 'rxjs';
 import { WindowSizeService } from '../services/window-size/window-size.service';

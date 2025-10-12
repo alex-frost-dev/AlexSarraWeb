@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { DarkModeToggleComponent } from '../../dark-mode-toggle/dark-mode-toggle.component';
 import { WindowSizeService } from '../../services/window-size/window-size.service';
 import { Observable } from 'rxjs';
