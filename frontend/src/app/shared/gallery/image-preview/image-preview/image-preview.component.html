@@ -7,34 +7,24 @@
     <div
       class="leave-container inline-flex max-h-full max-w-full items-center justify-center"
     >
-      @for (imgSrc of imagesQueue; track imgSrc) {
-        @if (!this.isInverted) {
-          <img
-            #img
-            class="enter-animation-right absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain duration-500 hover:blur-[0.75px]"
-            animate.leave="leaving"
-            src="{{ imgSrc }}"
-            (click)="this.openPreviewedImage()"
-            (load)="this.updateOverlay()"
-            (animationstart)="this.cleanPreviousImages()"
-            (animationend)="this.updateOverlay()"
-            (mouseenter)="isHovered = true"
-            (mouseleave)="isHovered = false"
-          />
-        } @else {
-          <img
-            #img
-            class="enter-animation-left absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain duration-500 hover:blur-[0.75px]"
-            animate.leave="leaving"
-            src="{{ imgSrc }}"
-            (click)="this.openPreviewedImage()"
-            (load)="this.updateOverlay()"
-            (animationstart)="this.cleanPreviousImages()"
-            (animationend)="this.updateOverlay()"
-            (mouseenter)="isHovered = true"
-            (mouseleave)="isHovered = false"
-          />
-        }
+      @for (imgSrc of this.images; track imgSrc) {
+        <img
+          #img
+          class="absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain hover:blur-[0.75px]"
+          src="{{ imgSrc }}"
+          (click)="this.openPreviewedImage()"
+          (mouseenter)="isHovered = true"
+          (mouseleave)="isHovered = false"
+          [ngClass]="
+            imgSrc === this.currentPreviewImage
+              ? !this.isInverted
+                ? 'enter-anim-right'
+                : 'enter-anim-left'
+              : imgSrc === this.previousPreviewImage
+                ? 'exit-anim'
+                : 'hidden'
+          "
+        />
       }
     </div>
   </div>
@@ -43,20 +33,15 @@
     [ngStyle]="this.spanOverlayStyle"
     [ngClass]="isHovered ? 'opacity-100' : 'opacity-0'"
   >
-    @if (this.isDarkMode()) {
-      <img
-        #magnIcon
-        class="z-10 h-1/6"
-        src="../../../../../assets/images/icons/search_icon_white.png"
-        (load)="this.updateOverlay()"
-      />
-    } @else {
-      <img
-        #magnIcon
-        class="z-10 h-1/6"
-        src="../../../../../assets/images/icons/search_icon_black.png"
-        (load)="this.updateOverlay()"
-      />
-    }
+    <img
+      #magnIcon
+      class="z-10 h-1/6"
+      [src]="
+        this.isDarkMode()
+          ? '../../../../../assets/images/icons/search_icon_white.png'
+          : '../../../../../assets/images/icons/search_icon_black.png'
+      "
+      (load)="this.updateOverlay()"
+    />
   </span>
 </div>

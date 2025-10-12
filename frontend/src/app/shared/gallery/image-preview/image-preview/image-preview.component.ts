@@ -13,17 +13,16 @@ import { DarkModeService } from '../../../services/dark-mode/dark-mode.service';
 })
 export class ImagePreviewComponent {
   public previousPreviewImage!: string | null;
-  public imagesQueue: string[] = [];
   private _currentPreviewImage!: string | null;
 
   @Input() images!: string[];
   @Input() isInverted!: boolean;
   @Input()
   set currentPreviewImage(value: string) {
-    // This variable is only used in the openPreviewedImage() method.
+    this.previousPreviewImage = this._currentPreviewImage;
     this._currentPreviewImage = value;
-    // Prevents duplicates
-    this.imagesQueue.push(value);
+    console.log('Current:', this._currentPreviewImage);
+    console.log('Previous:', this.previousPreviewImage);
   }
   get currentPreviewImage(): string | null {
     return this._currentPreviewImage;
@@ -54,24 +53,17 @@ export class ImagePreviewComponent {
   ngAfterViewInit() {
     // Listen for window resize
     this.updateOverlay();
-    // this.img.nativeElement.addEventListener('load', this.resizeListener);
-    // this.magnIcon.nativeElement.addEventListener('load', this.resizeListener);
     window.addEventListener('resize', this.resizeListener);
   }
 
   ngOnDestroy() {
-    // this.img.nativeElement.removeEventListener('load', this.resizeListener);
-    // this.magnIcon.nativeElement.removeEventListener(
-    //   'load',
-    //   this.resizeListener,
-    // );
     window.removeEventListener('resize', this.resizeListener);
   }
 
   openPreviewedImage() {
     this.dialog.open(ImageModalWindowComponent, {
       data: {
-        src: this._currentPreviewImage,
+        src: this.currentPreviewImage,
         images: this.images,
       },
     });
@@ -88,12 +80,6 @@ export class ImagePreviewComponent {
         height: rect.height + 'px',
         pointerEvents: 'none',
       };
-    }
-  }
-
-  cleanPreviousImages() {
-    if (this.imagesQueue.length > 1) {
-      this.imagesQueue.shift();
     }
   }
 

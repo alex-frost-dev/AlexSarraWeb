@@ -1,8 +1,12 @@
-.enter-animation-right {
-  animation: slide-in-right 400ms;
+/* Enter animations */
+
+.enter-anim-right {
+  z-index: 10;
+  transition: display;
+  animation: enter-anim-right 0.7s;
 }
 
-@keyframes slide-in-right {
+@keyframes enter-anim-right {
   from {
     opacity: 0;
     transform: translateX(100%);
@@ -12,11 +16,13 @@
   }
 }
 
-.enter-animation-left {
-  animation: slide-in-left 400ms;
+.enter-anim-left {
+  z-index: 10;
+  transition: display;
+  animation: enter-anim-left 0.7s;
 }
 
-@keyframes slide-in-left {
+@keyframes enter-anim-left {
   from {
     opacity: 0;
     transform: translateX(-100%);
@@ -26,21 +32,14 @@
   }
 }
 
-.leave-container {
-  opacity: 1;
-  transition: opacity 200ms ease-in;
-  /* animation: fade-out 0.2s forwards; */
+/* Exit animations */
+
+.exit-anim {
+  transition: display;
+  animation: exit-anim 0.4s forwards;
 }
 
-.leaving {
-  opacity: 0;
-  /* transition:
-    opacity 200ms ease-out,
-    transform 200ms ease-out; */
-  animation: fade-out 0.4s forwards;
-}
-
-@keyframes fade-out {
+@keyframes exit-anim {
   from {
     opacity: 1;
   }
