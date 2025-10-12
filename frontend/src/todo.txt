@@ -1,5 +1,9 @@
 GOOD INFO:
  https://unsplash.com/ -> Buenas web para backround images
 
+TODO:
+- Sustituir el image-modal-window por el carroussel de bootstrap.
+- Scrollspy de bootstrap podría servir para 'projects'
+
 BUGS CONOCIDOS:
 -
