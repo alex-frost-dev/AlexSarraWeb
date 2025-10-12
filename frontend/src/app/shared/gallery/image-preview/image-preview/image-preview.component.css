@@ -1,9 +1,8 @@
 /* Enter animations */
 
 .enter-anim-right {
-  z-index: 10;
   transition: display;
-  animation: enter-anim-right 0.7s;
+  animation: enter-anim-right 0.5s;
 }
 
 @keyframes enter-anim-right {
@@ -17,9 +16,8 @@
 }
 
 .enter-anim-left {
-  z-index: 10;
   transition: display;
-  animation: enter-anim-left 0.7s;
+  animation: enter-anim-left 0.5s;
 }
 
 @keyframes enter-anim-left {

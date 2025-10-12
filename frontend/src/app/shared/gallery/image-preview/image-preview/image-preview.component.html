@@ -8,21 +8,28 @@
       class="leave-container inline-flex max-h-full max-w-full items-center justify-center"
     >
       @for (imgSrc of this.images; track imgSrc) {
+        @if (imgSrc === this.currentPreviewImage) {
+          <img
+            #img
+            class="absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain hover:blur-[0.75px]"
+            src="{{ imgSrc }}"
+            (click)="this.openPreviewedImage()"
+            (mouseenter)="isHovered = true"
+            (mouseleave)="isHovered = false"
+            (animationend)="this.updateOverlay(imgSrc)"
+            [ngClass]="
+              !this.isInverted ? 'enter-anim-right' : 'enter-anim-left'
+            "
+          />
+        }
         <img
-          #img
           class="absolute z-0 max-h-full max-w-full cursor-pointer justify-center rounded object-contain hover:blur-[0.75px]"
           src="{{ imgSrc }}"
           (click)="this.openPreviewedImage()"
           (mouseenter)="isHovered = true"
           (mouseleave)="isHovered = false"
           [ngClass]="
-            imgSrc === this.currentPreviewImage
-              ? !this.isInverted
-                ? 'enter-anim-right'
-                : 'enter-anim-left'
-              : imgSrc === this.previousPreviewImage
-                ? 'exit-anim'
-                : 'hidden'
+            imgSrc === this.previousPreviewImage ? 'exit-anim' : 'hidden'
           "
         />
       }
@@ -35,13 +42,12 @@
   >
     <img
       #magnIcon
-      class="z-10 h-1/6"
+      class="z-20 h-1/6"
       [src]="
         this.isDarkMode()
           ? '../../../../../assets/images/icons/search_icon_white.png'
           : '../../../../../assets/images/icons/search_icon_black.png'
       "
-      (load)="this.updateOverlay()"
     />
   </span>
 </div>

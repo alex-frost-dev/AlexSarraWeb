@@ -47,12 +47,11 @@ export class ImagePreviewComponent {
       this.currentPreviewImage = this.images[0];
     }
     // Initialize resize Listener
-    this.resizeListener = this.updateOverlay();
+    // this.resizeListener = this.updateOverlay();
   }
 
   ngAfterViewInit() {
     // Listen for window resize
-    this.updateOverlay();
     window.addEventListener('resize', this.resizeListener);
   }
 
@@ -69,21 +68,25 @@ export class ImagePreviewComponent {
     });
   }
 
-  updateOverlay() {
-    if (this.img?.nativeElement) {
-      const rect = this.img.nativeElement.getBoundingClientRect();
-      this.spanOverlayStyle = {
-        position: 'absolute',
-        left: this.img.nativeElement.offsetLeft + 'px',
-        top: this.img.nativeElement.offsetTop + 'px',
-        width: rect.width + 'px',
-        height: rect.height + 'px',
-        pointerEvents: 'none',
-      };
+  updateOverlay(imageStr: string) {
+    if (imageStr === this.currentPreviewImage) {
+      if (this.img?.nativeElement) {
+        console.log('Updated uverlay', this.img);
+        const rect = this.img.nativeElement.getBoundingClientRect();
+        this.spanOverlayStyle = {
+          position: 'absolute',
+          left: this.img.nativeElement.offsetLeft + 'px',
+          top: this.img.nativeElement.offsetTop + 'px',
+          width: rect.width + 'px',
+          height: rect.height + 'px',
+          pointerEvents: 'none',
+        };
+      }
     }
   }
 
   isDarkMode(): boolean {
+    console.log(this.darkModeService.isDarkMode());
     return this.darkModeService.isDarkMode();
   }
 }
