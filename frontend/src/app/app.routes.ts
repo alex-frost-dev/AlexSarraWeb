@@ -7,14 +7,10 @@ export const routes: Routes = [
       import('./projects/projects.module').then((m) => m.ProjectsModule),
   },
   {
-    path: 'maintenance',
+    path: '',
     loadChildren: () =>
       import('./placeholders/maintenance/maintenance.module').then(
         (m) => m.ManteinanceModule,
       ),
-  },
-  {
-    path: '**',
-    redirectTo: 'maintenance',
   },
 ];
