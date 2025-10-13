@@ -1,1 +1,3 @@
-- Added margin-top to the contents of the projects page.
+Background image changed and margin darkmode-toggle reduced.
+- Changed light mode background image.
+- Reduced the px border margin of darkmode-toggle to always 1px.
