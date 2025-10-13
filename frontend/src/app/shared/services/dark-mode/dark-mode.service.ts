@@ -6,9 +6,9 @@ export class DarkModeService {
 
   constructor() {
     const saved = localStorage.getItem(this.darkModeKey);
-    if (saved === 'dark') {
+    if (saved === 'true') {
       this.setDarkMode(true);
-    } else if (saved === 'light') {
+    } else if (saved === 'false') {
       this.setDarkMode(false);
     }
   }
