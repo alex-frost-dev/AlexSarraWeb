@@ -13,12 +13,12 @@
 }
 
 .bg-image-1 {
-  background-image: url("../assets/images/background/background_sky.jpg");
+  background-image: url("../assets/images/background/augustine-wong-light-bg.jpg");
   opacity: 1;
 }
 
 .bg-image-2 {
-  background-image: url("../assets/images/background/background_dark_sand.jpg");
+  background-image: url("../assets/images/background/cat-han-black-bg.jpg");
   opacity: 0;
 }
 
