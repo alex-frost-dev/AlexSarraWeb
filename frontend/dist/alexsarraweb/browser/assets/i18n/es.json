@@ -15,7 +15,7 @@
       "year": "2025",
       "duration": "1 mes",
       "tools": "NetBeans",
-      "github": "https://github.com/A50tt/GestorFacturasTraduccion",
+      "github": "https://github.com/alex-frost-dev/GestorFacturasTraduccion",
       "images": [
         "../../../assets/images/projects/gestor_facturas/factura.png",
         "../../../assets/images/projects/gestor_facturas/crear_factura.png",
@@ -34,7 +34,7 @@
       "year": "2020",
       "duration": "1 mes",
       "tools": "Visual Studio",
-      "github": "https://github.com/A50tt/TestCapitales",
+      "github": "https://github.com/alex-frost-dev/TestCapitales",
       "images": [
         "../../../assets/images/projects/test_capitales/pantalla_inicio.png",
         "../../../assets/images/projects/test_capitales/prueba_correcto.png",
@@ -43,14 +43,16 @@
     },
     "automatizacion_procesos_departamentales": {
       "name": "Automatización de procesos departamentales",
-      "description": "Mediante <b>VBA</b> en Excel, mientras trabajaba en Catalonia Hotels & Resorts como contable, construí un programa para agilizar tareas en mi departamento. El código creaba informes ejecutando instrucciones de copia, comprobación y sincronización de archivos en <b>Sharepoint</b> y en local. Pude vivir la experiencia de <b>mantener</b> una aplicación y <b>adaptarla</b> a los cambios de la organización, además de <b>diseñarla</b> para que el usuario tuviera el control de manera simple desde un menú. Optimizó varias tareas del departamento y la duración de algunas se redujo de 2 horas a poco menos de 10 minutos.",
+      "description": "Mediante <b>VBA</b> en Excel, mientras trabajaba en Catalonia Hotels & Resorts como contable, construí un programa para agilizar tareas en mi departamento. El código creaba informes ejecutando instrucciones de copia, comprobación y sincronización de archivos en <b>Sharepoint</b> y en local. Pude vivir la experiencia de <b>mantener</b> una aplicación y <b>adaptarla</b> a los cambios de la organización, además de <b>diseñarla</b> para que el usuario tuviera el control de manera simple desde un simple menú. Optimizó varias tareas del departamento y la duración de algunas se redujo de 2 horas a poco menos de 10 minutos.<br><br>Lamentablemente, para evitar mostrar cualquier tipo de información interna, solo puedo enseñar una parte de mi código.",
       "frameworks": {
         "title": "VBA, Excel"
       },
       "year": "2020 2024",
       "duration": "4 años",
       "tools": "MS Excel, Sharepoint",
-      "images": []
+      "images": [
+        "../../../assets/images/projects/automatizacion_procesos_departamentales/muestra_codigo.png"
+      ]
     },
     "juego_sinonimos": {
       "name": "Juego de los sinónimos",
@@ -67,7 +69,7 @@
       ]
     },
     "ludoteca": {
-      "name": "Ludoteca Tan",
+      "name": "Ludoteca",
       "description": "Mi primera aplicación full stack es una librería de préstamos de juegos de mesa desarrollada con <b>Angular</b>, <b>Spring Boot</b>, <b>H2 Database</b> y testing con <b>Mockito</b>. A través de una <b>API RESTful</b>, el usuario puede crear nuevos juegos de mesa y asignarles categorías y autores. Además, es posible crear clientes y registrar préstamos a su nombre, indicando fechas de inicio y vencimiento.<br><br>Este proyecto lo realicé gracias a mis prácticas en <b>Capgemini</b>, donde aprendí mucho sobre Angular y Spring Boot. Probablemente fue el mejor curso que he realizado hasta ahora. Gracias a esta experiencia confirmé mi interés en el backend y pude adentrarme en el desarrollo full stack por primera vez.",
       "frameworks": {
         "title": "Angular, Spring Boot"
@@ -75,6 +77,7 @@
       "year": "2025",
       "duration": "1 mes",
       "tools": "Visual Studio Code, IntelliJ IDEA",
+      "github": "https://github.com/alex-frost-dev/Ludoteca",
       "images": [
         "../../../assets/images/projects/ludoteca/es/juegos.png",
         "../../../assets/images/projects/ludoteca/es/juegos_crear_rellenado.png",
@@ -83,5 +86,12 @@
         "../../../assets/images/projects/ludoteca/es/prestamos_filtro.png"
       ]
     }
+  },
+  "navigation_bar": {
+    "about_me": "CV",
+    "projects": "Proyectos"
+  },
+  "languages": {
+    "es": "Español"
   }
 }
