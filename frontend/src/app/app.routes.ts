@@ -6,11 +6,4 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./projects/projects.module').then((m) => m.ProjectsModule),
   },
-  {
-    path: '',
-    loadChildren: () =>
-      import('./placeholders/maintenance/maintenance.module').then(
-        (m) => m.ManteinanceModule,
-      ),
-  },
 ];
