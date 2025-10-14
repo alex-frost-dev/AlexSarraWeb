@@ -94,5 +94,9 @@
   },
   "languages": {
     "es": "Español"
+  },
+  "maintenance": {
+    "maintenance_message": "SITIO WEB EN DESARROLLO",
+    "proceed_to_website": "Lo sé. Llévame allí igualmente."
   }
 }

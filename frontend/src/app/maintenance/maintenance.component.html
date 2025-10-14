@@ -2,8 +2,9 @@
   class="maintenance-image-container flex h-full items-center bg-cover bg-no-repeat"
 >
   <a
-    class="absolute right-0 top-0 h-24 w-24 cursor-pointer"
+    class="absolute right-5 top-5 h-auto w-auto cursor-pointer rounded bg-slate-950 p-3 text-lg text-white transition-all hover:scale-105 hover:font-bold md:text-2xl"
     href="/projects"
+    [innerHTML]="this.jsonPrefix + '.proceed_to_website' | translate"
   ></a>
   <div
     class="m-auto flex h-auto w-auto flex-col items-center justify-center gap-2 align-middle"
@@ -14,8 +15,9 @@
         src="../../../assets/images/background/maintenance.png"
       />
     </div>
-    <p class="text-outline text-center text-6xl font-extrabold text-black">
-      SITIO WEB EN DESARROLLO
-    </p>
+    <p
+      class="text-outline text-center text-6xl font-extrabold text-black"
+      [innerHTML]="this.jsonPrefix + '.maintenance_message' | translate"
+    ></p>
   </div>
 </div>

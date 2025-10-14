@@ -5,6 +5,11 @@ import { MaintenanceLayoutComponent } from './core/layouts/maintenance-layout/ma
 export const routes: Routes = [
   {
     path: '',
+    redirectTo: 'maintenance',
+    pathMatch: 'full',
+  },
+  {
+    path: '',
     component: MainLayoutComponent,
     children: [
       {
@@ -22,11 +27,8 @@ export const routes: Routes = [
     ],
   },
   {
+    // Disable if there is not maintenance right now
     path: 'maintenance',
     component: MaintenanceLayoutComponent,
-  },
-  {
-    path: '**',
-    redirectTo: 'maintenance',
   },
 ];

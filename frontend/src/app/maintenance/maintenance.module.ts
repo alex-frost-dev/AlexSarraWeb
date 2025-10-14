@@ -6,7 +6,6 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [{ path: '', component: ManteinanceComponent }];
 
 @NgModule({
-  declarations: [ManteinanceComponent],
   imports: [CommonModule, RouterModule.forChild(routes)],
 })
 export class ManteinanceModule {}
