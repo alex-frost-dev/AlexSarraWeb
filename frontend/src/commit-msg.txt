@@ -1,3 +1,4 @@
-Background image changed and margin darkmode-toggle reduced.
-- Changed light mode background image.
-- Reduced the px border margin of darkmode-toggle to always 1px.
+Various changes:
+- <navbar> component is not at app level, not component level. It will always be visible.
+- Created about-me component and hover-scaling-button components.
+- About component in progress...
