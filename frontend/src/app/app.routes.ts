@@ -1,24 +1,29 @@
 import { Routes } from '@angular/router';
+import { MainLayoutComponent } from './core/layouts/main-layout/main-layout.component';
+import { MaintenanceLayoutComponent } from './core/layouts/maintenance-layout/maintenance-layout.component';
 
 export const routes: Routes = [
   {
-    path: 'projects',
-    loadChildren: () =>
-      import('./projects/projects.module').then((m) => m.ProjectsModule),
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: 'projects',
+        loadChildren: () =>
+          import('./features/projects/projects.module').then(
+            (m) => m.ProjectsModule,
+          ),
+      },
+      {
+        path: 'about',
+        loadChildren: () =>
+          import('./features/about/about.module').then((m) => m.AboutModule),
+      },
+    ],
   },
   {
     path: 'maintenance',
-    loadChildren: () =>
-      import('./placeholders/maintenance/maintenance.module').then(
-        (m) => m.ManteinanceModule,
-      ),
-  },
-  {
-    path: 'about',
-    loadComponent: () =>
-      import('./about/pages/about-me/about-me.component').then(
-        (c) => c.AboutMeComponent,
-      ),
+    component: MaintenanceLayoutComponent,
   },
   {
     path: '**',

@@ -1,4 +1,2 @@
 Various changes:
-- <navbar> component is not at app level, not component level. It will always be visible.
-- Created about-me component and hover-scaling-button components.
-- About component in progress...
+- 

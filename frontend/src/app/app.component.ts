@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LanguageService } from './shared/language/language.service';
-import { DarkModeService } from './shared/services/dark-mode/dark-mode.service';
-import { NavbarComponent } from './shared/navbar/navbar/navbar.component';
+import { DarkModeService } from './core/services/dark-mode/dark-mode.service';
+import { LanguageService } from './core/services/language/language.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
