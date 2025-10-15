@@ -1,0 +1,25 @@
+.bg-image-404 {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* When you want to transition, add a class to fade in the next image */
+.bg-image-404.show {
+  opacity: 1;
+}
+
+.bg-image-1 {
+  background-image: url("/assets/images/sad-cat-1.jpg");
+  opacity: 0;
+}
+
+.bg-image-2 {
+  background-image: url("/assets/images/mad-cat.gif");
+  opacity: 0;
+}

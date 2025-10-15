@@ -1,0 +1,22 @@
+<div class="bg-image-404 bg-image-1" [class.show]="isDevice('sm')"></div>
+<div class="bg-image-404 bg-image-1" [class.show]="isDevice('md')"></div>
+<div class="bg-image-404 bg-image-2" [class.show]="isDevice('lg')"></div>
+<div class="bg-image-404 bg-image-2" [class.show]="isDevice('xl')"></div>
+
+<div class="flex h-full w-full flex-col items-center justify-center">
+  <p
+    class="text-center text-6xl font-bold text-white"
+    [innerHTML]="this.jsonPrefix + '.title' | translate"
+    [style.textShadow]="
+      '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
+    "
+  ></p>
+  <div class="h-8"></div>
+  <p
+    class="text-center text-3xl text-white"
+    [innerHTML]="this.jsonPrefix + '.description' | translate"
+    [style.textShadow]="
+      '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
+    "
+  ></p>
+</div>

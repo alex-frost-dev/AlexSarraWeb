@@ -8,6 +8,6 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './maintenance.component.css',
   standalone: true,
 })
-export class ManteinanceComponent {
+export class MaintenanceComponent {
   jsonPrefix: string = 'maintenance';
 }

@@ -98,5 +98,9 @@
   "maintenance": {
     "maintenance_message": "SITIO WEB EN DESARROLLO",
     "proceed_to_website": "Lo sé. Llévame allí igualmente."
+  },
+  "404": {
+    "title": "Error 404",
+    "description": "La URL solicitada no se ha encontrado..."
   }
 }
