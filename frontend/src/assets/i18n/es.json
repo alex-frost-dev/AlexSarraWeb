@@ -13,7 +13,7 @@
         "secondary": "<i><small>migrado desde Hibernate/PostgreSQL</small></i>"
       },
       "year": "2025",
-      "duration": "1 mes",
+      "duration": "4 meses",
       "tools": "NetBeans",
       "github": "https://github.com/alex-frost-dev/GestorFacturasTraduccion",
       "images": [
