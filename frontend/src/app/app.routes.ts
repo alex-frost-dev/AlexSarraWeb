@@ -1,9 +1,5 @@
 import { Routes } from '@angular/router';
 import { MainLayoutComponent } from './core/layouts/main-layout/main-layout.component';
-import { MaintenanceLayoutComponent } from './core/layouts/maintenance-layout/maintenance-layout.component';
-import { PageNotFoundLayoutComponent } from './core/layouts/page-not-found-layout/page-not-found-layout.component';
-import { MaintenanceModule } from './maintenance/maintenance.module';
-import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 
 export const routes: Routes = [
   {
