@@ -13,7 +13,7 @@
         "secondary": "<i><small>migrado desde Hibernate/PostgreSQL</small></i>"
       },
       "year": "2025",
-      "duration": "1 mes",
+      "duration": "4 meses",
       "tools": "NetBeans",
       "github": "https://github.com/alex-frost-dev/GestorFacturasTraduccion",
       "images": [
@@ -88,10 +88,19 @@
     }
   },
   "navigation_bar": {
-    "about_me": "CV",
+    "about_me": "Sobre mí",
+    "cv": "CV",
     "projects": "Proyectos"
   },
   "languages": {
     "es": "Español"
+  },
+  "maintenance": {
+    "maintenance_message": "SITIO WEB EN DESARROLLO",
+    "proceed_to_website": "Lo sé. Llévame allí igualmente."
+  },
+  "404": {
+    "title": "Error 404",
+    "description": "La URL solicitada no se ha encontrado..."
   }
 }
